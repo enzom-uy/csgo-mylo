@@ -5,7 +5,7 @@ import { NavLink, useLocation } from 'react-router-dom'
 const MobileMenuItems: React.FC = () => {
     const currentLocation = useLocation().pathname
     return (
-        <ul className="fixed right-0 left-0 top-[10.5%] bg-background-start w-full shadow-custom">
+        <ul className="fixed right-0 left-0 top-[10.5%] bg-background-start w-full shadow-custom z-10">
             <li
                 className={`text-center ${
                     currentLocation === '/' ? 'bg-red-900' : ''
