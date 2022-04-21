@@ -1,6 +1,7 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Homepage from './pages/Homepage'
+import Mapas from './pages/Mapas'
 import Layout from './components/Layout'
 import ThemeContextProvider from './providers/ThemeContext'
 
@@ -12,7 +13,7 @@ const App: React.FC = () => {
         },
         {
             path: '/mapas',
-            element: <Homepage />
+            element: <Mapas />
         },
         {
             path: '/agregar',
