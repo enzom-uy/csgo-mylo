@@ -8,7 +8,9 @@ interface Props {
 
 const defaultState = {
     isMobile: true,
-    isMenuOpen: false
+    isOpen: false,
+    isMenuOpen: false,
+    handleMenuToggle: false
 }
 export const ThemeContext = createContext<ThemeContextValue>(defaultState)
 const { Provider } = ThemeContext
