@@ -9,7 +9,7 @@ const Layout: React.FC<Props> = ({ children }) => {
     return (
         <div className="w-full">
             <Navbar />
-            {children}
+            <main className="flex justify-center flex-wrap">{children}</main>
         </div>
     )
 }
