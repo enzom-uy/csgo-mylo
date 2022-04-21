@@ -3,7 +3,7 @@ import { ThemeContext } from '../../providers/ThemeContext'
 import MobileMenu from './MobileMenu'
 import logo from '/src/assets/mylo_navbarpng.png'
 
-const Navbar = () => {
+const Navbar: React.FC = () => {
     const { isMobile } = useContext(ThemeContext)
     return (
         <nav

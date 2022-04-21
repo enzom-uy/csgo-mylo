@@ -4,10 +4,18 @@ import Homepage from './pages/Homepage'
 import Layout from './components/Layout'
 import ThemeContextProvider from './providers/ThemeContext'
 
-function App() {
+const App: React.FC = () => {
     const routes = [
         {
             path: '/',
+            element: <Homepage />
+        },
+        {
+            path: '/mapas',
+            element: <Homepage />
+        },
+        {
+            path: '/agregar',
             element: <Homepage />
         }
     ]
