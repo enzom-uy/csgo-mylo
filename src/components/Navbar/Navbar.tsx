@@ -3,6 +3,7 @@ import { ThemeContext } from '../../providers/ThemeContext'
 import MobileMenu from './MobileMenu'
 import DesktopMenu from './DesktopMenu'
 import logo from '/src/assets/mylo_navbarpng.png'
+import { NavLink } from 'react-router-dom'
 
 const Navbar: React.FC = () => {
     const { isMobile } = useContext(ThemeContext)
@@ -13,9 +14,9 @@ const Navbar: React.FC = () => {
                 !isMobile ? 'px-5' : null
             } items-center justify-between`}
         >
-            <div>
+            <NavLink to="/">
                 <img src={logo} />
-            </div>
+            </NavLink>
             {isMobile ? <MobileMenu /> : <DesktopMenu />}
         </nav>
     )
