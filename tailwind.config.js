@@ -17,6 +17,10 @@ module.exports = {
             },
             boxShadow: {
                 custom: '0px 20px 17px rgba(0, 0, 0, 0.10)'
+            },
+            dropShadow: {
+                heading: '0px 4px 17px rgba(0, 0, 0, 0.43)',
+                cardInset: 'inset 255px 4px 4px rgba(0, 0, 0, 0.46)'
             }
         }
     },
