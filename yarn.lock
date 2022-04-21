@@ -1793,6 +1793,11 @@ react-dom@^18.0.0:
     loose-envify "^1.1.0"
     scheduler "^0.21.0"
 
+react-icons@^4.3.1:
+  version "4.3.1"
+  resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-4.3.1.tgz#2fa92aebbbc71f43d2db2ed1aed07361124e91ca"
+  integrity sha512-cB10MXLTs3gVuXimblAdI71jrJx8njrJZmNMEMC+sQu5B/BIOmlsAjskdqpn81y8UBVEGuHODd7/ci5DvoSzTQ==
+
 react-is@^16.13.1:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
@@ -2109,6 +2114,11 @@ uri-js@^4.2.2:
   integrity sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==
   dependencies:
     punycode "^2.1.0"
+
+use-mediaquery@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/use-mediaquery/-/use-mediaquery-1.0.1.tgz#7066dd1b012f41525624ec341fc9eaaa3fb86e05"
+  integrity sha512-4f5PxWMZ6zlS15vmI9/auMztgbJ+wUkWjLcLSLpwSklardBz0zF6UJ5vQ05uBu6h4NoI1hPkbXFTF0GITOTbrA==
 
 util-deprecate@^1.0.2:
   version "1.0.2"
