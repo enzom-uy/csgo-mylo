@@ -7,7 +7,7 @@ const Homepage: React.FC = () => {
         <main className="flex flex-col items-center">
             <h1
                 role="heading"
-                className="text-mobile-text text-3xl font-semibold drop-shadow-heading mb-12"
+                className="text-text-color text-3xl font-semibold drop-shadow-heading mb-12"
             >
                 MYLO NADES
             </h1>

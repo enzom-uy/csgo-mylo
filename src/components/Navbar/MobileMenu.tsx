@@ -9,12 +9,12 @@ const MobileMenu: React.FC = () => {
         <div>
             {!isOpen ? (
                 <MdMenu
-                    className="text-[2rem] text-mobile-text cursor-pointer"
+                    className="text-[2rem] text-text-color cursor-pointer"
                     onClick={handleMenuToggle}
                 />
             ) : (
                 <MdClose
-                    className="text-[2rem] text-mobile-text cursor-pointer"
+                    className="text-[2rem] text-text-color cursor-pointer"
                     onClick={handleMenuToggle}
                 />
             )}

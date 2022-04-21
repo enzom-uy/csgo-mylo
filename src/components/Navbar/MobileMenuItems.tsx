@@ -1,5 +1,4 @@
-import React, { useContext } from 'react'
-import { ThemeContext } from '../../providers/ThemeContext'
+import React from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
 
 const MobileMenuItems: React.FC = () => {
