@@ -10,11 +10,13 @@ const MobileMenu: React.FC = () => {
             {!isOpen ? (
                 <MdMenu
                     className="text-[2rem] text-text-color cursor-pointer"
+                    aria-label="Hamburguer menu"
                     onClick={handleMenuToggle}
                 />
             ) : (
                 <MdClose
                     className="text-[2rem] text-text-color cursor-pointer"
+                    aria-label="Hamburguer menu"
                     onClick={handleMenuToggle}
                 />
             )}
