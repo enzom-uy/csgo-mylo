@@ -14,6 +14,9 @@ module.exports = {
                 'background-start': '#161925',
                 'background-end': '#191C2E',
                 'mobile-text': '#406E8E'
+            },
+            boxShadow: {
+                custom: '0px 20px 17px rgba(0, 0, 0, 0.10)'
             }
         }
     },
