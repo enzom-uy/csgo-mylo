@@ -8,7 +8,7 @@ const Navbar: React.FC = () => {
     return (
         <nav
             role="navigation"
-            className="flex pt-[10px] items-center justify-between"
+            className="flex pt-[10px] pb-[46px] items-center justify-between"
         >
             <div>
                 <img src={logo} />
