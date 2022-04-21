@@ -21,7 +21,7 @@ const App: React.FC = () => {
         }
     ]
     return (
-        <div className="h-screen flex px-[12px] bg-gradient-to-br from-background-start to-background-end pb-[75px]">
+        <div className="min-h-screen flex px-[12px] bg-gradient-to-br from-background-start to-background-end pb-[75px]">
             <ThemeContextProvider>
                 <Layout>
                     <Routes>
