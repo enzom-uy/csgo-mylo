@@ -1,9 +1,9 @@
-import React, { useContext } from 'react'
-import { ThemeContext } from '../../providers/ThemeContext'
-import MobileMenu from './MobileMenu'
-import DesktopMenu from './DesktopMenu'
-import logo from '/src/assets/mylo_navbarpng.png'
+import React, { useContext, lazy, Suspense } from 'react'
 import { NavLink } from 'react-router-dom'
+import { ThemeContext } from '../../providers/ThemeContext'
+const MobileMenu = lazy(() => import('./MobileMenu'))
+const DesktopMenu = lazy(() => import('./DesktopMenu'))
+import logo from '/src/assets/mylo_navbarpng.png'
 
 const Navbar: React.FC = () => {
     const { isMobile } = useContext(ThemeContext)
@@ -17,7 +17,15 @@ const Navbar: React.FC = () => {
             <NavLink to="/">
                 <img src={logo} />
             </NavLink>
-            {isMobile ? <MobileMenu /> : <DesktopMenu />}
+            {isMobile ? (
+                <Suspense fallback={false}>
+                    <MobileMenu />
+                </Suspense>
+            ) : (
+                <Suspense fallback={false}>
+                    <DesktopMenu />
+                </Suspense>
+            )}
         </nav>
     )
 }

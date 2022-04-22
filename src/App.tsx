@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { lazy, Suspense } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Homepage from './pages/Homepage'
-import Mapas from './pages/Mapas'
+const Mapas = lazy(() => import('./pages/Mapas'))
 import Layout from './components/Layout'
 import ThemeContextProvider from './providers/ThemeContext'
 
@@ -13,7 +13,11 @@ const App: React.FC = () => {
         },
         {
             path: '/mapas',
-            element: <Mapas />
+            element: (
+                <Suspense fallback={<div>Cargando</div>}>
+                    <Mapas />
+                </Suspense>
+            )
         },
         {
             path: '/agregar',
@@ -21,8 +25,8 @@ const App: React.FC = () => {
         }
     ]
     return (
-        <div className="min-h-screen flex px-[12px] bg-gradient-to-br from-background-start to-background-end pb-[75px]">
-            <ThemeContextProvider>
+        <ThemeContextProvider>
+            <div className="min-h-screen flex px-[12px] bg-gradient-to-br from-background-start to-background-end pb-[75px]">
                 <Layout>
                     <Routes>
                         {routes.map((route) => (
@@ -34,8 +38,8 @@ const App: React.FC = () => {
                         ))}
                     </Routes>
                 </Layout>
-            </ThemeContextProvider>
-        </div>
+            </div>
+        </ThemeContextProvider>
     )
 }
 
