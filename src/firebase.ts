@@ -14,8 +14,8 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig)
 const db = getFirestore(app)
 
-export const molosCollection = collection(db, 'molos')
-export const flashesCollection = collection(db, 'flashes')
-export const humosCollection = collection(db, 'humos')
+export const molosCollection = collection(db, 'molo')
+export const flashesCollection = collection(db, 'flash')
+export const smokesCollection = collection(db, 'smoke')
 
 export default db
