@@ -5,6 +5,7 @@ import infernocard from '/src/assets/card_inferno.png'
 import overpasscard from '/src/assets/card_overpass.png'
 import dust2card from '/src/assets/card_dust2.png'
 import nukecard from '/src/assets/card_nuke.png'
+import { NavLink } from 'react-router-dom'
 
 const maps = [
     {
@@ -38,12 +39,9 @@ const Mapas: React.FC = () => {
     return (
         <div className="flex flex-wrap w-full justify-center">
             {maps.map((map) => (
-                <Card
-                    key={map.title}
-                    title={map.title}
-                    altText={map.alt}
-                    img={map.img}
-                />
+                <NavLink key={map.title} to={`/${map.title}/locations`}>
+                    <Card title={map.title} altText={map.alt} img={map.img} />
+                </NavLink>
             ))}
         </div>
     )
