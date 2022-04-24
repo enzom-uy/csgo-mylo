@@ -1,29 +1,38 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { getDocs, query, where } from 'firebase/firestore'
-import { nadesCollection } from '../firebase'
+import { flashesCollection, smokesCollection } from '../firebase'
 
-interface Smoke {
+interface Nade {
     name: string
     videoUrl: string
     type: string
-    id: number
+    id: string
+    location: string
 }
 
-const useGetSmokes = () => {
-    const [smokes, setSmokes] = useState<Array<Smoke>>([])
+const useGetSmokes = (location: string | undefined) => {
+    const [smokes, setSmokes] = useState<Array<Nade>>([])
+    const [flashes, setFlashes] = useState<Array<Nade>>([])
+    const [molos, setMolos] = useState<Array<Nade>>([])
 
     useEffect(() => {
-        const queryAllSmokes = getDocs(
-            query(nadesCollection, where('type', '==', 'smoke'))
+        const querySmokes = getDocs(
+            query(smokesCollection, where('location', '==', location))
         )
-        queryAllSmokes.then((res) => {
-            const resArray = res.docs.map((doc) => doc.data() as Smoke)
-            console.log(resArray)
+        querySmokes.then((res) => {
+            const resArray = res.docs.map((doc) => doc.data() as Nade)
             setSmokes(resArray)
+        })
+        const queryFlashes = getDocs(
+            query(flashesCollection, where('location', '==', location))
+        )
+        queryFlashes.then((res) => {
+            const resArray = res.docs.map((doc) => doc.data() as Nade)
+            setFlashes(resArray)
         })
     }, [])
 
-    return { smokes }
+    return { smokes, flashes }
 }
 
 export default useGetSmokes
