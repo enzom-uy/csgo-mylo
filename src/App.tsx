@@ -1,15 +1,21 @@
 import React, { lazy, Suspense } from 'react'
 import { Routes, Route } from 'react-router-dom'
-import Homepage from './pages/Homepage'
-const Mapas = lazy(() => import('./pages/Mapas'))
 import Layout from './components/Layout'
 import ThemeContextProvider from './providers/ThemeContext'
+const Homepage = lazy(() => import('./pages/Homepage'))
+const Mapas = lazy(() => import('./pages/Mapas'))
+const Locations = lazy(() => import('./pages/Locations'))
+const Nades = lazy(() => import('./pages/Nades'))
 
 const App: React.FC = () => {
     const routes = [
         {
             path: '/',
-            element: <Homepage />
+            element: (
+                <Suspense fallback={false}>
+                    <Homepage />
+                </Suspense>
+            )
         },
         {
             path: '/mapas',
@@ -21,7 +27,27 @@ const App: React.FC = () => {
         },
         {
             path: '/agregar',
-            element: <Homepage />
+            element: (
+                <Suspense fallback={false}>
+                    <Homepage />
+                </Suspense>
+            )
+        },
+        {
+            path: '/:mapa/locations',
+            element: (
+                <Suspense fallback={false}>
+                    <Locations />
+                </Suspense>
+            )
+        },
+        {
+            path: '/:mapa/locations/:location',
+            element: (
+                <Suspense fallback={false}>
+                    <Nades />
+                </Suspense>
+            )
         }
     ]
     return (
