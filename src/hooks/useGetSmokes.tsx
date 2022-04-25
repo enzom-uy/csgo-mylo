@@ -1,38 +1,37 @@
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { getDocs, query, where } from 'firebase/firestore'
-import { flashesCollection, smokesCollection } from '../firebase'
+import { smokesCollection } from '../firebase'
+import { Nade } from '../interfaces/interfaces'
+import ClipLoader from 'react-spinners/ClipLoader'
 
-interface Nade {
-    name: string
-    videoUrl: string
-    type: string
-    id: string
-    location: string
-}
-
-const useGetSmokes = (location: string | undefined) => {
+const useGetSmokes = (
+    location: string | undefined,
+    map: string | undefined
+) => {
     const [smokes, setSmokes] = useState<Array<Nade>>([])
-    const [flashes, setFlashes] = useState<Array<Nade>>([])
-    const [molos, setMolos] = useState<Array<Nade>>([])
+    const [smokesFromLocation, setSmokesFromLocation] = useState<Array<Nade>>(
+        []
+    )
+    const [loadingSmokes, setLoadingSmokes] = useState<React.ReactNode>(
+        <ClipLoader color="#406E8E" />
+    )
 
     useEffect(() => {
         const querySmokes = getDocs(
-            query(smokesCollection, where('location', '==', location))
+            query(smokesCollection, where('map', '==', map))
         )
         querySmokes.then((res) => {
             const resArray = res.docs.map((doc) => doc.data() as Nade)
+            const filteredArrayBaseOnLocation = resArray.filter(
+                (smoke) => smoke.location === location
+            )
+            setSmokesFromLocation(filteredArrayBaseOnLocation)
             setSmokes(resArray)
-        })
-        const queryFlashes = getDocs(
-            query(flashesCollection, where('location', '==', location))
-        )
-        queryFlashes.then((res) => {
-            const resArray = res.docs.map((doc) => doc.data() as Nade)
-            setFlashes(resArray)
+            setLoadingSmokes(false)
         })
     }, [])
 
-    return { smokes, flashes }
+    return { smokes, loadingSmokes, smokesFromLocation }
 }
 
 export default useGetSmokes
