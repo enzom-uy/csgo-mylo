@@ -10,9 +10,9 @@ const Navbar: React.FC = () => {
     return (
         <nav
             role="navigation"
-            className={`flex pt-[10px] pb-[46px] ${
-                !isMobile ? 'px-5' : null
-            } items-center justify-between`}
+            className={`flex mb-[46px] ${
+                !isMobile ? 'px-5' : 'px-4'
+            } items-center justify-between fixed w-full z-10 h-12 bg-background-start`}
         >
             <NavLink to="/">
                 <img src={logo} />
