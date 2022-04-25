@@ -26,7 +26,11 @@ const useGetSmokes = (
                 (smoke) => smoke.location === location
             )
             if (filteredArrayBaseOnLocation.length === 0) {
-                setLoadingSmokes('No existen smokes en esta categoría.')
+                setLoadingSmokes(
+                    <p className="text-text-color">
+                        No existen humos en esta categoría.
+                    </p>
+                )
             } else {
                 setSmokesFromLocation(filteredArrayBaseOnLocation)
                 setSmokes(resArray)

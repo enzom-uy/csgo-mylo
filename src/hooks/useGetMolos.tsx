@@ -21,7 +21,11 @@ const useGetMolos = (location: string | undefined, map: string | undefined) => {
                 (molo) => molo.location === location
             )
             if (filteredArrayBaseOnLocation.length === 0) {
-                setLoadingMolos('No existen molos en esta categoría.')
+                setLoadingMolos(
+                    <p className="text-text-color">
+                        No existen molos en esta categoría.
+                    </p>
+                )
             } else {
                 setMolosFromLocation(filteredArrayBaseOnLocation)
                 setMolos(resArray)

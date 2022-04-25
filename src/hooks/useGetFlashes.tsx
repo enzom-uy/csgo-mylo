@@ -26,7 +26,11 @@ const useGetFlashes = (
                 (flash) => flash.location === location
             )
             if (filteredArrayBaseOnLocation.length === 0) {
-                setLoadingFlashes('No existen flashes en esta categoría.')
+                setLoadingFlashes(
+                    <p className="text-text-color">
+                        No existen flashes en esta categoría.
+                    </p>
+                )
             } else {
                 setFlashesFromLocation(filteredArrayBaseOnLocation)
                 setFlashes(resArray)
