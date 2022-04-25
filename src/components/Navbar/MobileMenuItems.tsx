@@ -12,7 +12,7 @@ const MobileMenuItems: React.FC<Props> = ({ toggle }) => {
             <li
                 onClick={toggle}
                 className={`text-center ${
-                    currentLocation === '/' ? 'bg-active-link' : ''
+                    currentLocation === '/' ? 'bg-primary-darker' : ''
                 } h-10 flex justify-center items-center cursor-pointer`}
             >
                 <NavLink to="/" className="text-text-color w-full">
@@ -22,7 +22,7 @@ const MobileMenuItems: React.FC<Props> = ({ toggle }) => {
             <li
                 onClick={toggle}
                 className={`text-center ${
-                    currentLocation === '/mapas' ? 'bg-active-link' : ''
+                    currentLocation === '/mapas' ? 'bg-primary-darker' : ''
                 } h-10 flex justify-center items-center cursor-pointer`}
             >
                 <NavLink to="/mapas" className="text-text-color w-full">
@@ -32,7 +32,7 @@ const MobileMenuItems: React.FC<Props> = ({ toggle }) => {
             <li
                 onClick={toggle}
                 className={`text-center ${
-                    currentLocation === '/agregar' ? 'bg-active-link' : ''
+                    currentLocation === '/agregar' ? 'bg-primary-darker' : ''
                 } h-10 flex justify-center items-center cursor-pointer`}
             >
                 <NavLink to="/agregar" className="text-text-color w-full">

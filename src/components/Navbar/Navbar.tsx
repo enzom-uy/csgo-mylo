@@ -11,8 +11,8 @@ const Navbar: React.FC = () => {
         <nav
             role="navigation"
             className={`flex mb-[46px] ${
-                !isMobile ? 'px-5' : 'px-4'
-            } items-center justify-between fixed w-full z-10 h-12 bg-background-start`}
+                !isMobile ? 'px-5 py-7' : 'px-4'
+            } items-center justify-between fixed w-full z-10 h-12 bg-primary-darker`}
         >
             <NavLink to="/">
                 <img src={logo} />
