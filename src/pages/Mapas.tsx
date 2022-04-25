@@ -32,14 +32,19 @@ const maps = [
 
 const Mapas: React.FC = () => {
     return (
-        <div className="flex flex-wrap w-full justify-center">
-            {maps.map((map) => (
-                <div key={map.title} className="h-fit">
-                    <NavLink to={`/${map.title}/locations`}>
-                        <Card title={map.title} img={map.img} />
-                    </NavLink>
-                </div>
-            ))}
+        <div className="flex w-full justify-start items-center flex-col debug">
+            <h1 className="text-text-color text-4xl mb-10 drop-shadow-heading">
+                Mapas
+            </h1>
+            <div className="flex flex-wrap justify-center">
+                {maps.map((map) => (
+                    <div key={map.title} className="h-fit">
+                        <NavLink to={`/${map.title}/locations`}>
+                            <Card title={map.title} img={map.img} />
+                        </NavLink>
+                    </div>
+                ))}
+            </div>
         </div>
     )
 }
