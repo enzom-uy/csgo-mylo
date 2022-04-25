@@ -34,9 +34,11 @@ const Mapas: React.FC = () => {
     return (
         <div className="flex flex-wrap w-full justify-center">
             {maps.map((map) => (
-                <NavLink key={map.title} to={`/${map.title}/locations`}>
-                    <Card title={map.title} img={map.img} />
-                </NavLink>
+                <div key={map.title} className="h-fit">
+                    <NavLink to={`/${map.title}/locations`}>
+                        <Card title={map.title} img={map.img} />
+                    </NavLink>
+                </div>
             ))}
         </div>
     )
