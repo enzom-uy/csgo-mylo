@@ -20,9 +20,13 @@ const useGetMolos = (location: string | undefined, map: string | undefined) => {
             const filteredArrayBaseOnLocation = resArray.filter(
                 (molo) => molo.location === location
             )
-            setMolosFromLocation(filteredArrayBaseOnLocation)
-            setMolos(resArray)
-            setLoadingMolos(false)
+            if (filteredArrayBaseOnLocation.length === 0) {
+                setLoadingMolos('No existen molos en esta categoría.')
+            } else {
+                setMolosFromLocation(filteredArrayBaseOnLocation)
+                setMolos(resArray)
+                setLoadingMolos(false)
+            }
         })
     }, [])
 

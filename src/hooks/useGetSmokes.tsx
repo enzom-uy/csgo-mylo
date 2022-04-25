@@ -25,9 +25,13 @@ const useGetSmokes = (
             const filteredArrayBaseOnLocation = resArray.filter(
                 (smoke) => smoke.location === location
             )
-            setSmokesFromLocation(filteredArrayBaseOnLocation)
-            setSmokes(resArray)
-            setLoadingSmokes(false)
+            if (filteredArrayBaseOnLocation.length === 0) {
+                setLoadingSmokes('No existen smokes en esta categoría.')
+            } else {
+                setSmokesFromLocation(filteredArrayBaseOnLocation)
+                setSmokes(resArray)
+                setLoadingSmokes(false)
+            }
         })
     }, [])
 

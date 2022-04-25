@@ -25,9 +25,13 @@ const useGetFlashes = (
             const filteredArrayBaseOnLocation = resArray.filter(
                 (flash) => flash.location === location
             )
-            setFlashesFromLocation(filteredArrayBaseOnLocation)
-            setFlashes(resArray)
-            setLoadingFlashes(false)
+            if (filteredArrayBaseOnLocation.length === 0) {
+                setLoadingFlashes('No existen flashes en esta categoría.')
+            } else {
+                setFlashesFromLocation(filteredArrayBaseOnLocation)
+                setFlashes(resArray)
+                setLoadingFlashes(false)
+            }
         })
     }, [])
 
