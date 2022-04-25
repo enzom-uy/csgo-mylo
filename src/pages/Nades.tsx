@@ -1,25 +1,67 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
-import Video from '../components/Video/Video'
+import Nade from '../components/Nade/Nade'
 import useGetSmokes from '../hooks/useGetSmokes'
+import useGetMolos from '../hooks/useGetMolos'
+import useGetFlashes from '../hooks/useGetFlashes'
 
 const Nades: React.FC = () => {
-    const { location } = useParams()
-    const { smokes, flashes } = useGetSmokes(location)
-
+    const { location, mapa } = useParams()
+    const { loadingSmokes, smokesFromLocation } = useGetSmokes(location, mapa)
+    const { loadingFlashes, flashesFromLocation } = useGetFlashes(
+        location,
+        mapa
+    )
+    const { loadingMolos, molosFromLocation } = useGetMolos(location, mapa)
     return (
         <div className="flex flex-col justify-center gap-10 w-full flex-wrap">
-            <h1 className="text-center text-3xl text-text-color drop-shadow-heading">
-                Smokes
-            </h1>
-            <div className="flex justify-center gap-10 w-full flex-wrap">
-                {/* Here goes the array.map to render a <Video /> component for every nade */}
-                <video autoPlay controls className="min-w-[240px] max-w-[50vw]">
-                    <source
-                        src="https://giant.gfycat.com/DefiantHonoredChevrotain.mp4"
-                        type="video/mp4"
-                    />
-                </video>
+            <div>
+                <h1 className="text-center text-3xl text-text-color drop-shadow-heading mb-4">
+                    Smokes
+                </h1>
+                <div className="flex justify-center gap-10 w-full flex-wrap">
+                    {!loadingSmokes
+                        ? smokesFromLocation.map((smoke) => (
+                              <Nade
+                                  key={smoke.id}
+                                  name={smoke.name}
+                                  videoUrl={smoke.videoUrl}
+                              />
+                          ))
+                        : loadingSmokes}
+                </div>
+            </div>
+            <div>
+                <h1 className="text-center text-3xl text-text-color drop-shadow-heading mb-4">
+                    Flashes
+                </h1>
+                <div className="flex justify-center gap-10 w-full flex-wrap">
+                    {!loadingFlashes
+                        ? flashesFromLocation.map((flash) => (
+                              <Nade
+                                  key={flash.id}
+                                  name={flash.name}
+                                  videoUrl={flash.videoUrl}
+                              />
+                          ))
+                        : loadingFlashes}
+                </div>
+            </div>
+            <div>
+                <h1 className="text-center text-3xl text-text-color drop-shadow-heading mb-4">
+                    Molos
+                </h1>
+                <div className="flex justify-center gap-10 w-full flex-wrap">
+                    {!loadingMolos
+                        ? molosFromLocation.map((molo) => (
+                              <Nade
+                                  key={molo.id}
+                                  name={molo.name}
+                                  videoUrl={molo.videoUrl}
+                              />
+                          ))
+                        : loadingMolos}
+                </div>
             </div>
         </div>
     )
