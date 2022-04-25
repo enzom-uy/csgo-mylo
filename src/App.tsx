@@ -1,5 +1,6 @@
 import React, { lazy, Suspense } from 'react'
 import { Routes, Route } from 'react-router-dom'
+import { ClipLoader } from 'react-spinners'
 import Layout from './components/Layout'
 import ThemeContextProvider from './providers/ThemeContext'
 const Homepage = lazy(() => import('./pages/Homepage'))
@@ -20,7 +21,7 @@ const App: React.FC = () => {
         {
             path: '/mapas',
             element: (
-                <Suspense fallback={<div>Cargando</div>}>
+                <Suspense fallback={<ClipLoader color="#406383" />}>
                     <Mapas />
                 </Suspense>
             )
@@ -28,7 +29,7 @@ const App: React.FC = () => {
         {
             path: '/agregar',
             element: (
-                <Suspense fallback={false}>
+                <Suspense fallback={<ClipLoader color="#406383" />}>
                     <Homepage />
                 </Suspense>
             )
@@ -36,7 +37,7 @@ const App: React.FC = () => {
         {
             path: '/:mapa/locations',
             element: (
-                <Suspense fallback={false}>
+                <Suspense fallback={<ClipLoader color="#406383" />}>
                     <Locations />
                 </Suspense>
             )
@@ -44,7 +45,7 @@ const App: React.FC = () => {
         {
             path: '/:mapa/locations/:location',
             element: (
-                <Suspense fallback={false}>
+                <Suspense fallback={<ClipLoader color="#406383" />}>
                     <Nades />
                 </Suspense>
             )
@@ -52,7 +53,7 @@ const App: React.FC = () => {
     ]
     return (
         <ThemeContextProvider>
-            <div className="min-h-screen flex px-[12px] bg-gradient-to-br from-background-start to-background-end pb-[75px]">
+            <div className="min-h-screen flex bg-gradient-to-br from-background-start to-background-end pb-[75px]">
                 <Layout>
                     <Routes>
                         {routes.map((route) => (
