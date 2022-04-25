@@ -2,6 +2,7 @@ import React, { lazy, Suspense } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { ClipLoader } from 'react-spinners'
 import Layout from './components/Layout'
+import AddNade from './pages/AddNade'
 import ThemeContextProvider from './providers/ThemeContext'
 const Homepage = lazy(() => import('./pages/Homepage'))
 const Mapas = lazy(() => import('./pages/Mapas'))
@@ -30,7 +31,7 @@ const App: React.FC = () => {
             path: '/agregar',
             element: (
                 <Suspense fallback={<ClipLoader color="#406383" />}>
-                    <Homepage />
+                    <AddNade />
                 </Suspense>
             )
         },
