@@ -14,11 +14,7 @@ const Homepage: React.FC = () => {
             </h1>
             <div>
                 <NavLink to="/mapas">
-                    <Card
-                        altText="Multiple csgo maps blurred"
-                        title="Mapas"
-                        img={mapasimg}
-                    />
+                    <Card title="Mapas" img={mapasimg} />
                 </NavLink>
             </div>
         </main>
