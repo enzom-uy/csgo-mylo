@@ -1,6 +1,5 @@
 import React, { lazy, Suspense } from 'react'
 import { Routes, Route } from 'react-router-dom'
-import { ClipLoader } from 'react-spinners'
 import Layout from './components/Layout'
 import AddNade from './pages/AddNade'
 import ThemeContextProvider from './providers/ThemeContext'
@@ -22,7 +21,7 @@ const App: React.FC = () => {
         {
             path: '/mapas',
             element: (
-                <Suspense fallback={<ClipLoader color="#406383" />}>
+                <Suspense fallback={null}>
                     <Mapas />
                 </Suspense>
             )
@@ -30,7 +29,7 @@ const App: React.FC = () => {
         {
             path: '/agregar',
             element: (
-                <Suspense fallback={<ClipLoader color="#406383" />}>
+                <Suspense fallback={null}>
                     <AddNade />
                 </Suspense>
             )
@@ -38,7 +37,7 @@ const App: React.FC = () => {
         {
             path: '/:mapa/locations',
             element: (
-                <Suspense fallback={<ClipLoader color="#406383" />}>
+                <Suspense fallback={null}>
                     <Locations />
                 </Suspense>
             )
@@ -46,7 +45,7 @@ const App: React.FC = () => {
         {
             path: '/:mapa/locations/:location',
             element: (
-                <Suspense fallback={<ClipLoader color="#406383" />}>
+                <Suspense fallback={null}>
                     <Nades />
                 </Suspense>
             )
