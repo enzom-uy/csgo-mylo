@@ -53,7 +53,7 @@ const App: React.FC = () => {
     ]
     return (
         <ThemeContextProvider>
-            <div className="min-h-screen flex bg-gradient-to-br from-background-start to-background-end pb-[75px]">
+            <div className="min-h-screen flex bg-gradient-to-br from-background-start to-background-end">
                 <Layout>
                     <Routes>
                         {routes.map((route) => (
