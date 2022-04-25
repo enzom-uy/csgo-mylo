@@ -22,7 +22,7 @@ const MobileMenu: React.FC = () => {
             )}
             {isOpen ? (
                 <Suspense fallback={null}>
-                    <MobileMenuItems />
+                    <MobileMenuItems toggle={handleMenuToggle} />
                 </Suspense>
             ) : null}
         </div>
