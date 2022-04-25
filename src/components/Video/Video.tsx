@@ -6,15 +6,9 @@ interface Props {
 
 const Video: React.FC<Props> = ({ src }) => {
     return (
-        <div>
-            <iframe
-                src={src}
-                frameBorder="0"
-                width="100%"
-                height="100%"
-                allowFullScreen
-            ></iframe>
-        </div>
+        <video controls className="min-w-[240px] w-[400px] max-w-[50vw]">
+            <source src={src} type="video/mp4" />
+        </video>
     )
 }
 
