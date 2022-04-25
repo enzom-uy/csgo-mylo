@@ -1,39 +1,43 @@
-import React from 'react'
-import { NavLink, useLocation, useParams } from 'react-router-dom'
+import React, { lazy, Suspense } from 'react'
+import { useLocation, useParams } from 'react-router-dom'
+import { ClipLoader } from 'react-spinners'
+const Dust2 = lazy(() => import('../components/MapLocations/Dust2'))
+const Mirage = lazy(() => import('../components/MapLocations/Mirage'))
+const Inferno = lazy(() => import('../components/MapLocations/Inferno'))
+const Overpass = lazy(() => import('../components/MapLocations/Overpass'))
+const Nuke = lazy(() => import('../components/MapLocations/Nuke'))
 
 const Locations: React.FC = () => {
-    const location = useLocation()
+    const location = useLocation().pathname
     const { mapa } = useParams()
+    console.log(mapa)
 
     return (
         <div className="flex flex-col gap-4">
-            <NavLink
-                to={`${location.pathname}/site-a`}
-                className="text-text-color"
-            >
-                Site de A
-            </NavLink>
-            <NavLink
-                to={`${location.pathname}/site-b`}
-                className="text-text-color"
-            >
-                Site de B
-            </NavLink>
-            {mapa !== 'Nuke' ? (
-                <NavLink
-                    to={`${location.pathname}/medio`}
-                    className="text-text-color"
-                >
-                    Medio
-                </NavLink>
+            {mapa === 'Mirage' ? (
+                <Suspense fallback={<ClipLoader color="#406E8E" />}>
+                    <Mirage location={location} />
+                </Suspense>
+            ) : null}
+            {mapa === 'Dust 2' ? (
+                <Suspense fallback={<ClipLoader color="#406E8E" />}>
+                    <Dust2 location={location} />
+                </Suspense>
             ) : null}
             {mapa === 'Nuke' ? (
-                <NavLink
-                    className="text-text-color"
-                    to={`${location.pathname}/afuera`}
-                >
-                    Afuera
-                </NavLink>
+                <Suspense fallback={<ClipLoader color="#406E8E" />}>
+                    <Nuke location={location} />
+                </Suspense>
+            ) : null}
+            {mapa === 'Overpass' ? (
+                <Suspense fallback={<ClipLoader color="#406E8E" />}>
+                    <Overpass location={location} />
+                </Suspense>
+            ) : null}
+            {mapa === 'Inferno' ? (
+                <Suspense fallback={<ClipLoader color="#406E8E" />}>
+                    <Inferno location={location} />
+                </Suspense>
             ) : null}
         </div>
     )
