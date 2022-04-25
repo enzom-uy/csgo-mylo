@@ -12,6 +12,7 @@ module.exports = {
             },
             colors: {
                 'background-start': '#161925',
+                'active-link': '#11131c',
                 'background-end': '#191C2E',
                 'text-color': '#406E8E'
             },
