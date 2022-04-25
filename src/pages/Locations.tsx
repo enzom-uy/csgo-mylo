@@ -19,12 +19,14 @@ const Locations: React.FC = () => {
             >
                 Site de B
             </NavLink>
-            <NavLink
-                to={`${location.pathname}/medio`}
-                className="text-text-color"
-            >
-                Medio
-            </NavLink>
+            {mapa !== 'Nuke' ? (
+                <NavLink
+                    to={`${location.pathname}/medio`}
+                    className="text-text-color"
+                >
+                    Medio
+                </NavLink>
+            ) : null}
             {mapa === 'Nuke' ? (
                 <NavLink
                     className="text-text-color"
