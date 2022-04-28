@@ -6,28 +6,28 @@ const DesktopMenu = lazy(() => import('./DesktopMenu'))
 import logo from '/src/assets/mylo_navbarpng.png'
 
 const Navbar: React.FC = () => {
-    const { isMobile } = useContext(ThemeContext)
-    return (
-        <nav
-            role="navigation"
-            className={`flex mb-[46px] ${
-                !isMobile ? 'px-5 py-7' : 'px-4'
-            } items-center justify-between fixed w-full z-10 h-12 bg-primary-darker`}
-        >
-            <NavLink to="/">
-                <img src={logo} />
-            </NavLink>
-            {isMobile ? (
-                <Suspense fallback={false}>
-                    <MobileMenu />
-                </Suspense>
-            ) : (
-                <Suspense fallback={false}>
-                    <DesktopMenu />
-                </Suspense>
-            )}
-        </nav>
-    )
+  const { isMobile } = useContext(ThemeContext)
+  return (
+    <nav
+      role="navigation"
+      className={`flex mb-[46px] ${
+        !isMobile ? 'px-5 py-7' : 'px-4'
+      } items-center justify-between fixed w-full z-10 h-12 bg-primary-darker`}
+    >
+      <NavLink to="/">
+        <img src={logo} />
+      </NavLink>
+      {isMobile ? (
+        <Suspense fallback={false}>
+          <MobileMenu />
+        </Suspense>
+      ) : (
+        <Suspense fallback={false}>
+          <DesktopMenu />
+        </Suspense>
+      )}
+    </nav>
+  )
 }
 
 export default Navbar

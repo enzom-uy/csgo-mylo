@@ -8,39 +8,37 @@ const Overpass = lazy(() => import('../components/MapLocations/Overpass'))
 const Nuke = lazy(() => import('../components/MapLocations/Nuke'))
 
 const Locations: React.FC = () => {
-    const location = useLocation().pathname
-    const { mapa } = useParams()
-    console.log(mapa)
-
-    return (
-        <div className="flex flex-col gap-4">
-            {mapa === 'Mirage' ? (
-                <Suspense fallback={<ClipLoader color="#406E8E" />}>
-                    <Mirage location={location} />
-                </Suspense>
-            ) : null}
-            {mapa === 'Dust 2' ? (
-                <Suspense fallback={<ClipLoader color="#406E8E" />}>
-                    <Dust2 location={location} />
-                </Suspense>
-            ) : null}
-            {mapa === 'Nuke' ? (
-                <Suspense fallback={<ClipLoader color="#406E8E" />}>
-                    <Nuke location={location} />
-                </Suspense>
-            ) : null}
-            {mapa === 'Overpass' ? (
-                <Suspense fallback={<ClipLoader color="#406E8E" />}>
-                    <Overpass location={location} />
-                </Suspense>
-            ) : null}
-            {mapa === 'Inferno' ? (
-                <Suspense fallback={<ClipLoader color="#406E8E" />}>
-                    <Inferno location={location} />
-                </Suspense>
-            ) : null}
-        </div>
-    )
+  const location = useLocation().pathname
+  const { mapa } = useParams()
+  return (
+    <div className="flex flex-col gap-4">
+      {mapa === 'Mirage' ? (
+        <Suspense fallback={<ClipLoader color="#406E8E" />}>
+          <Mirage location={location} />
+        </Suspense>
+      ) : null}
+      {mapa === 'Dust 2' ? (
+        <Suspense fallback={<ClipLoader color="#406E8E" />}>
+          <Dust2 location={location} />
+        </Suspense>
+      ) : null}
+      {mapa === 'Nuke' ? (
+        <Suspense fallback={<ClipLoader color="#406E8E" />}>
+          <Nuke location={location} />
+        </Suspense>
+      ) : null}
+      {mapa === 'Overpass' ? (
+        <Suspense fallback={<ClipLoader color="#406E8E" />}>
+          <Overpass location={location} />
+        </Suspense>
+      ) : null}
+      {mapa === 'Inferno' ? (
+        <Suspense fallback={<ClipLoader color="#406E8E" />}>
+          <Inferno location={location} />
+        </Suspense>
+      ) : null}
+    </div>
+  )
 }
 
 export default Locations
