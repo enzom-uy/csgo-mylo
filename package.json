@@ -29,6 +29,7 @@
         "eslint-plugin-use-encapsulation": "^1.1.0",
         "postcss": "^8.4.12",
         "prettier": "^2.6.2",
+        "react-firebase-hooks": "^5.0.3",
         "tailwindcss": "^3.0.24",
         "typescript": "^4.6.3",
         "use-mediaquery": "^1.0.1",
