@@ -1,4 +1,5 @@
 import { initializeApp } from 'firebase/app'
+import { getAuth } from 'firebase/auth'
 import { getFirestore, collection } from 'firebase/firestore'
 
 const firebaseConfig = {
@@ -11,8 +12,9 @@ const firebaseConfig = {
 }
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig)
+export const app = initializeApp(firebaseConfig)
 const db = getFirestore(app)
+export const auth = getAuth(app)
 
 export const molosCollection = collection(db, 'molo')
 export const flashesCollection = collection(db, 'flash')
