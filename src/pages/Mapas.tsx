@@ -7,7 +7,7 @@ import dust2card from '/src/assets/card_dust2.png'
 import nukecard from '/src/assets/card_nuke.png'
 import { NavLink } from 'react-router-dom'
 
-const maps = [
+export const maps = [
   {
     title: 'Mirage',
     img: miragecard
