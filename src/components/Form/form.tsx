@@ -64,19 +64,14 @@ const Form: React.FC = () => {
     }
   }
   return (
-    <form onSubmit={handleFormSubmit}>
-      <ToastContainer
-        pauseOnFocusLoss={false}
-        position={'top-center'}
-        autoClose={3000}
-        newestOnTop
-        draggable
-      />
+    <form
+      onSubmit={handleFormSubmit}
+      className="bg-slate-200 w-full px-4 pt-4 pb-6 drop-shadow-heading"
+    >
       <Input
         htmlFor="nadeName"
         labelText="Nombre de la nade"
         type="text"
-        placeholder="TT para ventana..."
         reference={references.nadeNameRef}
         handler={handleNadeNameChange}
         value={formValues.name}
@@ -90,7 +85,11 @@ const Form: React.FC = () => {
         value={formValues.map}
       >
         {maps.map((map) => (
-          <option key={map.title} value={map.title}>
+          <option
+            key={map.title}
+            value={map.title}
+            className="bg-gray-50 text-gray-900 rounded-lg"
+          >
             {map.title}
           </option>
         ))}
@@ -132,12 +131,18 @@ const Form: React.FC = () => {
         htmlFor="videoUrl"
         labelText="Link del GfyCat"
         type="text"
-        placeholder="https://gfycat.com/assuredblankdwarfrabbit"
         reference={references.nadeVideoUrl}
         handler={handleVideoUrlChange}
         value={formValues.videoUrl}
       />
-      <button type="submit">Submit</button>
+      <div className="flex justify-center">
+        <button
+          type="submit"
+          className="bg-text-color px-4 py-2 w-full hover:bg-primary-lighter"
+        >
+          Agregar nade
+        </button>
+      </div>
     </form>
   )
 }
