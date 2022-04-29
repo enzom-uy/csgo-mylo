@@ -11,6 +11,16 @@ const Edit: React.FC = () => {
         subir el video editado (zoom a la referencia de la mira, aclaraciones,
         etc).
         <br />
+        Si no se quiere descargar un programa de edición, existe{' '}
+        <a
+          target="_blank"
+          rel="noreferrer"
+          href="https://clipchamp.com/en/"
+          className="text-red-500 hover:underline"
+        >
+          Clipchamp
+        </a>
+        <br />
         También, si la referencia es algo complicada, considera usar la{' '}
         <a
           target="_blank"
