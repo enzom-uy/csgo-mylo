@@ -1,12 +1,13 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { FcGoogle } from 'react-icons/fc'
 import useSignWithGoogle from '../hooks/useSignWithGoogle'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from '../firebase'
 import { ClipLoader } from 'react-spinners'
+import { Navigate } from 'react-router-dom'
 
 const AddNade: React.FC = () => {
-  const [user, loading, error] = useAuthState(auth)
+  const [user, loading] = useAuthState(auth)
   return (
     <div>
       {loading === true ? (
@@ -15,6 +16,7 @@ const AddNade: React.FC = () => {
         <p className="text-text-color">
           Ya estás iniciado sesión,{' '}
           <span className="text-red-500">{user?.email}</span>
+          <Navigate to="/agregar/form" />
         </p>
       ) : (
         <div className="flex flex-col">
