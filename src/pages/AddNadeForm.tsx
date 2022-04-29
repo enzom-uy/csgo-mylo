@@ -3,7 +3,7 @@ import Form from '../components/Form/form'
 
 const AddNadeForm: React.FC = () => {
   return (
-    <div>
+    <div className="w-80">
       <Form />
     </div>
   )
