@@ -10,14 +10,33 @@ const Nuke = lazy(() => import('../components/MapLocations/Nuke'))
 const Locations: React.FC = () => {
   const location = useLocation().pathname
   const { mapa } = useParams()
-  console.log(mapa)
   return (
     <div className="flex flex-col gap-4">
-      {mapa === 'Mirage' ? <Mirage location={location} /> : null}
-      {mapa === 'Dust 2' ? <Dust2 location={location} /> : null}
-      {mapa === 'Nuke' ? <Nuke location={location} /> : null}
-      {mapa === 'Overpass' ? <Overpass location={location} /> : null}
-      {mapa === 'Inferno' ? <Inferno location={location} /> : null}
+      {mapa === 'Mirage' ? (
+        <Suspense fallback={<ClipLoader />}>
+          <Mirage location={location} />
+        </Suspense>
+      ) : null}
+      {mapa === 'Dust 2' ? (
+        <Suspense fallback={<ClipLoader />}>
+          <Dust2 location={location} />
+        </Suspense>
+      ) : null}
+      {mapa === 'Nuke' ? (
+        <Suspense fallback={<ClipLoader />}>
+          <Nuke location={location} />
+        </Suspense>
+      ) : null}
+      {mapa === 'Overpass' ? (
+        <Suspense fallback={<ClipLoader />}>
+          <Overpass location={location} />
+        </Suspense>
+      ) : null}
+      {mapa === 'Inferno' ? (
+        <Suspense fallback={<ClipLoader />}>
+          <Inferno location={location} />
+        </Suspense>
+      ) : null}
     </div>
   )
 }
