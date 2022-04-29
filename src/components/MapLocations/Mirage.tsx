@@ -7,7 +7,7 @@ interface Props {
 
 const Mirage: React.FC<Props> = ({ location }) => {
   return (
-    <div>
+    <>
       <NavLink to={`${location}/site-a`} className="text-text-color text-xl">
         Site de A
       </NavLink>
@@ -41,7 +41,7 @@ const Mirage: React.FC<Props> = ({ location }) => {
       <NavLink to={`${location}/mercado`} className="text-text-color text-xl">
         Mercado
       </NavLink>
-    </div>
+    </>
   )
 }
 
