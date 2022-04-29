@@ -1,5 +1,7 @@
 import { auth } from '../firebase'
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 const provider = new GoogleAuthProvider()
 
@@ -10,6 +12,8 @@ const useSignWithGoogle = () => {
       const token = credential?.accessToken
       const userId = res.user.uid
       const userName = res.user.displayName
+      const notifyLogged = () => toast.success(`Bienvenido, ${userName}`)
+      notifyLogged()
     })
     .catch((err) => {
       const errorCode = err.code

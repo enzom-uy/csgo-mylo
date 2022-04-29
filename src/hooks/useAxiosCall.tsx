@@ -36,6 +36,9 @@ const useAxiosCall = () => {
         setError(
           'Hubo un error al subir la granada.\nPor favor, verifique la URL.'
         )
+        toast.dismiss()
+        const notifyError = () => toast.error(error)
+        notifyError()
         console.log(err)
       })
   }
