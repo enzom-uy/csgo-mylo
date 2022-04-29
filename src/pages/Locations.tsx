@@ -1,6 +1,5 @@
-import React, { lazy, Suspense } from 'react'
+import React, { lazy } from 'react'
 import { useLocation, useParams } from 'react-router-dom'
-import { ClipLoader } from 'react-spinners'
 const Dust2 = lazy(() => import('../components/MapLocations/Dust2'))
 const Mirage = lazy(() => import('../components/MapLocations/Mirage'))
 const Inferno = lazy(() => import('../components/MapLocations/Inferno'))
@@ -12,31 +11,11 @@ const Locations: React.FC = () => {
   const { mapa } = useParams()
   return (
     <div className="flex flex-col gap-4">
-      {mapa === 'Mirage' ? (
-        <Suspense fallback={<ClipLoader />}>
-          <Mirage location={location} />
-        </Suspense>
-      ) : null}
-      {mapa === 'Dust 2' ? (
-        <Suspense fallback={<ClipLoader />}>
-          <Dust2 location={location} />
-        </Suspense>
-      ) : null}
-      {mapa === 'Nuke' ? (
-        <Suspense fallback={<ClipLoader />}>
-          <Nuke location={location} />
-        </Suspense>
-      ) : null}
-      {mapa === 'Overpass' ? (
-        <Suspense fallback={<ClipLoader />}>
-          <Overpass location={location} />
-        </Suspense>
-      ) : null}
-      {mapa === 'Inferno' ? (
-        <Suspense fallback={<ClipLoader />}>
-          <Inferno location={location} />
-        </Suspense>
-      ) : null}
+      {mapa === 'Mirage' ? <Mirage location={location} /> : null}
+      {mapa === 'Dust 2' ? <Dust2 location={location} /> : null}
+      {mapa === 'Nuke' ? <Nuke location={location} /> : null}
+      {mapa === 'Overpass' ? <Overpass location={location} /> : null}
+      {mapa === 'Inferno' ? <Inferno location={location} /> : null}
     </div>
   )
 }
