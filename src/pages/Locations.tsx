@@ -13,17 +13,17 @@ const Locations: React.FC = () => {
   return (
     <div className="flex flex-col gap-4">
       {mapa === 'Mirage' ? (
-        <Suspense fallback={<SyncLoader color="#406e8e" />}>
+        <Suspense fallback={<SyncLoader color="#406E8E" />}>
           <Mirage location={location} />
         </Suspense>
       ) : null}
       {mapa === 'Dust 2' ? (
-        <Suspense fallback={<SyncLoader color="#406e8e" />}>
+        <Suspense fallback={<SyncLoader color="#406E8E" />}>
           <Dust2 location={location} />
         </Suspense>
       ) : null}
       {mapa === 'Nuke' ? (
-        <Suspense fallback={<SyncLoader color="#406e8e" />}>
+        <Suspense fallback={<SyncLoader color="#406E8E" />}>
           <Nuke location={location} />
         </Suspense>
       ) : null}
@@ -33,7 +33,7 @@ const Locations: React.FC = () => {
         </Suspense>
       ) : null}
       {mapa === 'Inferno' ? (
-        <Suspense fallback={<SyncLoader color="#406e8e" />}>
+        <Suspense fallback={<SyncLoader color="#406E8E" />}>
           <Inferno location={location} />
         </Suspense>
       ) : null}
