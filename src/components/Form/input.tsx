@@ -4,6 +4,7 @@ interface Props {
   htmlFor: string
   labelText: string
   type: string
+  value?: string
   placeholder: string
   reference: React.RefObject<HTMLInputElement>
   handler?: () => void
@@ -15,7 +16,8 @@ const Input: React.FC<Props> = ({
   type,
   placeholder,
   reference,
-  handler
+  handler,
+  value
 }) => {
   return (
     <div>
@@ -28,6 +30,7 @@ const Input: React.FC<Props> = ({
         placeholder={placeholder}
         onChange={handler}
         ref={reference}
+        value={value}
       />
     </div>
   )

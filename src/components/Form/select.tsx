@@ -8,6 +8,7 @@ interface Props {
   handler?: () => void
   eventHandler?: (e: ChangeEvent<HTMLSelectElement>) => void
   reference?: React.RefObject<HTMLSelectElement>
+  value: string
 }
 
 const Select: React.FC<Props> = ({
@@ -17,7 +18,8 @@ const Select: React.FC<Props> = ({
   children,
   handler,
   reference,
-  eventHandler
+  eventHandler,
+  value
 }) => {
   return (
     <div>
@@ -26,9 +28,9 @@ const Select: React.FC<Props> = ({
       </label>
       <select
         id={htmlFor}
-        defaultValue=""
         onChange={handler || eventHandler}
         ref={reference}
+        value={value}
       >
         <option value="" disabled>
           {initialOption}
