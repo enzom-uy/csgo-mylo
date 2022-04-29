@@ -7,6 +7,8 @@ import { maps } from '../../pages/Mapas'
 import formUtils from './form.utils'
 import Input from './input'
 import Select from './select'
+import { nadeSchema } from '../../validations/FormValidation'
+import { ToastContainer } from 'react-toastify'
 
 const Form: React.FC = () => {
   const references = formUtils().references
@@ -48,37 +50,28 @@ const Form: React.FC = () => {
     if (references.nadeVideoUrl.current) {
       setFormValues({
         ...formValues,
-        videoUrl: references.nadeVideoUrl.current.value.replace(
-          'https://gfycat.com/',
-          ''
-        )
+        videoUrl: references.nadeVideoUrl.current.value
       })
     }
   }
 
-  const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    const [nadeNameRef, mapRef, nadeVideoUrl, locationRef, nadeTypeRef] = [
-      references.nadeNameRef.current,
-      references.mapRef.current,
-      references.nadeVideoUrl.current,
-      references.locationRef.current,
-      references.nadeTypeRef.current
-    ]
-    if (nadeNameRef && mapRef && nadeVideoUrl && locationRef && nadeTypeRef) {
-      setFormValues({
-        ...formValues,
-        name: nadeNameRef.value,
-        map: mapRef.value,
-        location: locationRef.value,
-        type: nadeTypeRef.value,
-        videoUrl: nadeVideoUrl.value.replace('https://gfycat.com/', '')
-      })
+    const isValid = await nadeSchema.isValid(formValues)
+    if (isValid) {
+      addNade(formValues.type, formValues)
+      setFormValues({ name: '', videoUrl: '', type: '', map: '', location: '' })
     }
-    addNade(formValues.type, formValues)
   }
   return (
     <form onSubmit={handleFormSubmit}>
+      <ToastContainer
+        pauseOnFocusLoss={false}
+        position={'top-center'}
+        autoClose={3000}
+        newestOnTop
+        draggable
+      />
       <Input
         htmlFor="nadeName"
         labelText="Nombre de la nade"
@@ -86,6 +79,7 @@ const Form: React.FC = () => {
         placeholder="TT para ventana..."
         reference={references.nadeNameRef}
         handler={handleNadeNameChange}
+        value={formValues.name}
       />
       <Select
         htmlFor="mapName"
@@ -93,6 +87,7 @@ const Form: React.FC = () => {
         initialOption="Mapa..."
         handler={handleMapChange}
         reference={references.mapRef}
+        value={formValues.map}
       >
         {maps.map((map) => (
           <option key={map.title} value={map.title}>
@@ -106,6 +101,7 @@ const Form: React.FC = () => {
         initialOption="Lugar..."
         reference={references.locationRef}
         handler={handleLocationChange}
+        value={formValues.location}
       >
         {filtered.map((map) =>
           map.locations.map((location) => {
@@ -124,6 +120,7 @@ const Form: React.FC = () => {
         initialOption="Tipo..."
         reference={references.nadeTypeRef}
         handler={handleTypeChange}
+        value={formValues.type}
       >
         {nadeTypes.map((type) => (
           <option key={type} value={type}>
@@ -138,6 +135,7 @@ const Form: React.FC = () => {
         placeholder="https://gfycat.com/assuredblankdwarfrabbit"
         reference={references.nadeVideoUrl}
         handler={handleVideoUrlChange}
+        value={formValues.videoUrl}
       />
       <button type="submit">Submit</button>
     </form>
