@@ -1,6 +1,7 @@
 import React, { lazy, Suspense } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { Routes, Route, Navigate } from 'react-router-dom'
+import { ToastContainer } from 'react-toastify'
 import Layout from './components/Layout'
 import { auth } from './firebase'
 import ThemeContextProvider from './providers/ThemeContext'
@@ -74,8 +75,15 @@ const App: React.FC = () => {
   ]
   return (
     <ThemeContextProvider>
-      <div className="min-h-screen flex bg-gradient-to-br from-background-start to-background-end">
+      <div className="min-h-screen flex bg-gradient-to-br from-background-start to-primary-darker">
         <Layout>
+          <ToastContainer
+            pauseOnFocusLoss={false}
+            position={'top-center'}
+            autoClose={3000}
+            newestOnTop
+            draggable
+          />
           <Routes>
             {routes.map((route) => (
               <Route
