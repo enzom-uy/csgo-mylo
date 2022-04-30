@@ -23,6 +23,9 @@ module.exports = {
       dropShadow: {
         heading: '0px 4px 17px rgba(0, 0, 0, 0.43)',
         cardInset: 'inset 255px 4px 4px rgba(0, 0, 0, 0.46)'
+      },
+      screens: {
+        424: '424px'
       }
     }
   },
