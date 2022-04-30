@@ -1,32 +1,26 @@
-import React, { lazy, Suspense, useContext } from 'react'
+import React, { useContext } from 'react'
 import { ThemeContext } from '../../providers/ThemeContext'
-import { MdMenu, MdClose } from 'react-icons/md'
-const MobileMenuItems = lazy(() => import('./MobileMenuItems'))
+import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai'
 
 const MobileMenu: React.FC = () => {
-    const { isOpen, handleMenuToggle } = useContext(ThemeContext)
-    return (
-        <div>
-            {!isOpen ? (
-                <MdMenu
-                    className="text-[2rem] text-text-color cursor-pointer"
-                    aria-label="Hamburguer menu"
-                    onClick={handleMenuToggle}
-                />
-            ) : (
-                <MdClose
-                    className="text-[2rem] text-text-color cursor-pointer"
-                    aria-label="Hamburguer menu"
-                    onClick={handleMenuToggle}
-                />
-            )}
-            {isOpen ? (
-                <Suspense fallback={null}>
-                    <MobileMenuItems toggle={handleMenuToggle} />
-                </Suspense>
-            ) : null}
-        </div>
-    )
+  const { isOpen, handleMenuToggle } = useContext(ThemeContext)
+  return (
+    <div>
+      {!isOpen ? (
+        <AiOutlineMenu
+          className="text-[1.5rem] text-text-color cursor-pointer"
+          aria-label="Hamburguer menu"
+          onClick={handleMenuToggle}
+        />
+      ) : (
+        <AiOutlineClose
+          className="text-[1.5rem] text-text-color cursor-pointer"
+          aria-label="Hamburguer menu"
+          onClick={handleMenuToggle}
+        />
+      )}
+    </div>
+  )
 }
 
 export default MobileMenu
