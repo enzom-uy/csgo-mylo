@@ -6,12 +6,19 @@ const Mirage = lazy(() => import('../components/MapLocations/Mirage'))
 const Inferno = lazy(() => import('../components/MapLocations/Inferno'))
 const Overpass = lazy(() => import('../components/MapLocations/Overpass'))
 const Nuke = lazy(() => import('../components/MapLocations/Nuke'))
+import { motion } from 'framer-motion'
 
 const Locations: React.FC = () => {
   const location = useLocation().pathname
   const { mapa } = useParams()
   return (
-    <div className="flex flex-col gap-4">
+    <motion.div
+      className="flex flex-col gap-4"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ delay: 0.001 }}
+    >
       {mapa === 'Mirage' ? (
         <Suspense fallback={<SyncLoader color="#406E8E" />}>
           <Mirage location={location} />
@@ -37,7 +44,7 @@ const Locations: React.FC = () => {
           <Inferno location={location} />
         </Suspense>
       ) : null}
-    </div>
+    </motion.div>
   )
 }
 

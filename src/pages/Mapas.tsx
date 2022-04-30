@@ -6,6 +6,7 @@ import overpasscard from '/src/assets/card_overpass.png'
 import dust2card from '/src/assets/card_dust2.png'
 import nukecard from '/src/assets/card_nuke.png'
 import { NavLink } from 'react-router-dom'
+import { motion } from 'framer-motion'
 
 export const maps = [
   {
@@ -32,7 +33,13 @@ export const maps = [
 
 const Mapas: React.FC = () => {
   return (
-    <div className="flex w-full justify-start items-center flex-col debug">
+    <motion.div
+      className="flex w-full justify-start items-center flex-col debug"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ delay: 0.001 }}
+    >
       <h1 className="text-text-color text-4xl mb-10 drop-shadow-heading">
         Mapas
       </h1>
@@ -45,7 +52,7 @@ const Mapas: React.FC = () => {
           </div>
         ))}
       </div>
-    </div>
+    </motion.div>
   )
 }
 

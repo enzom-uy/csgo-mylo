@@ -1,6 +1,6 @@
 import React, { lazy, Suspense } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
-import { Routes, Route, Navigate } from 'react-router-dom'
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 import Layout from './components/Layout'
 import { auth } from './firebase'
@@ -11,8 +11,10 @@ const AddNadeForm = lazy(() => import('./pages/AddNadeForm'))
 const Mapas = lazy(() => import('./pages/Mapas'))
 const Locations = lazy(() => import('./pages/Locations'))
 const Nades = lazy(() => import('./pages/Nades'))
+import { AnimatePresence } from 'framer-motion'
 
 const App: React.FC = () => {
+  const location = useLocation()
   const [user, loading] = useAuthState(auth)
   function RequireAuth({ children }: { children: JSX.Element }) {
     if (loading === false && user === null) {
@@ -84,15 +86,17 @@ const App: React.FC = () => {
             newestOnTop
             draggable
           />
-          <Routes>
-            {routes.map((route) => (
-              <Route
-                key={route.path}
-                path={route.path}
-                element={route.element}
-              />
-            ))}
-          </Routes>
+          <AnimatePresence exitBeforeEnter>
+            <Routes location={location} key={location.pathname}>
+              {routes.map((route) => (
+                <Route
+                  key={route.path}
+                  path={route.path}
+                  element={route.element}
+                />
+              ))}
+            </Routes>
+          </AnimatePresence>
         </Layout>
       </div>
     </ThemeContextProvider>

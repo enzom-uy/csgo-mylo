@@ -1,15 +1,22 @@
 import React from 'react'
 import Form from '../components/Form/form'
 import NadeGuide from '../components/NadeGuide/nadeguide'
+import { motion } from 'framer-motion'
 
 const AddNadeForm: React.FC = () => {
   return (
-    <div className="flex flex-col items-center gap-8">
+    <motion.div
+      className="flex flex-col items-center gap-8"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ delay: 0.001 }}
+    >
       <NadeGuide />
       <div className="w-[90%]">
         <Form />
       </div>
-    </div>
+    </motion.div>
   )
 }
 
