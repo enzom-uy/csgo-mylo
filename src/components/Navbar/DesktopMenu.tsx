@@ -42,6 +42,7 @@ const DesktopMenu: React.FC = () => {
             height="30"
             src={user.photoURL!}
             className="rounded-full"
+            alt="User profile picture"
           />
         ) : null}
       </ul>
