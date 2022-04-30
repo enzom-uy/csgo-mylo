@@ -138,7 +138,7 @@ const Form: React.FC = () => {
       <div className="flex justify-center">
         <button
           type="submit"
-          className="bg-text-color px-4 py-2 w-full hover:bg-primary-lighter"
+          className="bg-text-color px-4 py-2 w-full hover:bg-primary-lighter text-white font-medium"
         >
           Agregar nade
         </button>

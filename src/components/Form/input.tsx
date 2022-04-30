@@ -27,7 +27,7 @@ const Input: React.FC<Props> = ({
         ref={reference}
         value={value}
         autoComplete="off"
-        className="block py-2.5 px-0 w-full text-md font-medium text-black bg-transparent
+        className="block py-2.5 px-0 w-full text-md text-black bg-transparent
         border-0 border-b-2 border-gray-300 appearance-none dark:text-black
         dark:border-gray-600 dark:focus:border-blue-500
         focus:outline-none focus:ring-0 focus:border-blue-600 peer"
@@ -35,7 +35,7 @@ const Input: React.FC<Props> = ({
       <label
         htmlFor={htmlFor}
         className="peer-focus:font-medium absolute
-        text-sm text-black dark:text-gray-400 duration-300
+        text-sm text-black dark:text-gray-700 duration-300
         transform -translate-y-6 scale-75 top-3 -z-10
         origin-[0] peer-focus:left-0 peer-focus:text-blue-600
         peer-focus:dark:text-black peer-placeholder-shown:scale-100
