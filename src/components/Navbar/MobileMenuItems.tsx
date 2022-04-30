@@ -11,7 +11,7 @@ const MobileMenuItems: React.FC<Props> = ({ toggle }) => {
   const currentLocation = useLocation().pathname
   const [user] = useAuthState(auth)
   return (
-    <ul className="fixed right-0 left-0 top-[7.5%] bg-background-start w-full shadow-custom">
+    <ul className="fixed right-0 left-0 top-[4.9%] bg-background-start w-full shadow-custom">
       <li
         onClick={toggle}
         className={`text-center ${
