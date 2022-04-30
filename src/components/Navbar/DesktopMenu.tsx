@@ -1,11 +1,12 @@
 import React from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { NavLink, useLocation } from 'react-router-dom'
+import { ClipLoader } from 'react-spinners'
 import { auth } from '../../firebase'
 
 const DesktopMenu: React.FC = () => {
   const currentLocation = useLocation().pathname
-  const [user] = useAuthState(auth)
+  const [user, loading] = useAuthState(auth)
   return (
     <>
       <ul className={`flex items-center gap-6`}>
@@ -31,13 +32,11 @@ const DesktopMenu: React.FC = () => {
           }
                 `}
         >
-          {user ? (
-            <NavLink to="/agregar/form">Agregar nade</NavLink>
-          ) : (
-            <NavLink to="/agregar">Agregar nade</NavLink>
-          )}
+          <NavLink to="/agregar">Agregar nade</NavLink>
         </li>
-        {user ? (
+        {loading ? (
+          <ClipLoader />
+        ) : user ? (
           <img
             width="30"
             height="30"

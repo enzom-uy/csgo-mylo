@@ -1,13 +1,10 @@
 import React, { lazy, Suspense } from 'react'
-import { useAuthState } from 'react-firebase-hooks/auth'
-import { Routes, Route, Navigate, useLocation } from 'react-router-dom'
+import { Routes, Route, useLocation } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 import Layout from './components/Layout'
-import { auth } from './firebase'
 import ThemeContextProvider from './providers/ThemeContext'
 const Homepage = lazy(() => import('./pages/Homepage'))
 const AddNade = lazy(() => import('./pages/AddNade'))
-const AddNadeForm = lazy(() => import('./pages/AddNadeForm'))
 const Mapas = lazy(() => import('./pages/Mapas'))
 const Locations = lazy(() => import('./pages/Locations'))
 const Nades = lazy(() => import('./pages/Nades'))
@@ -15,13 +12,6 @@ import { AnimatePresence } from 'framer-motion'
 
 const App: React.FC = () => {
   const location = useLocation()
-  const [user, loading] = useAuthState(auth)
-  function RequireAuth({ children }: { children: JSX.Element }) {
-    if (loading === false && user === null) {
-      return <Navigate to="/" />
-    }
-    return children
-  }
 
   const routes = [
     {
@@ -45,16 +35,6 @@ const App: React.FC = () => {
       element: (
         <Suspense fallback={null}>
           <AddNade />
-        </Suspense>
-      )
-    },
-    {
-      path: '/agregar/form',
-      element: (
-        <Suspense fallback={null}>
-          <RequireAuth>
-            <AddNadeForm />
-          </RequireAuth>
         </Suspense>
       )
     },
