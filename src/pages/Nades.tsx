@@ -13,7 +13,7 @@ const Nades: React.FC = () => {
   const { loadingMolos, molosFromLocation } = useGetMolos(location, mapa)
   return (
     <motion.div
-      className="flex flex-col justify-center gap-10 w-full flex-wrap"
+      className="flex flex-col justify-center gap-10 w-full pt-28 424:pt-0 flex-wrap"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}

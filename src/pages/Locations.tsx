@@ -13,7 +13,7 @@ const Locations: React.FC = () => {
   const { mapa } = useParams()
   return (
     <motion.div
-      className="flex flex-col gap-4"
+      className="flex flex-col pt-28 gap-4 424:pt-0"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}

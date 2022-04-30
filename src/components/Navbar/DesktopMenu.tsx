@@ -38,9 +38,12 @@ const DesktopMenu: React.FC = () => {
           )}
         </li>
         {user ? (
-          <div className="w-10 rounded-full overflow-hidden">
-            <img src={user.photoURL!} />
-          </div>
+          <img
+            width="30"
+            height="30"
+            src={user.photoURL!}
+            className="rounded-full"
+          />
         ) : null}
       </ul>
     </>

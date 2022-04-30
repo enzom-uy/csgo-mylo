@@ -6,7 +6,7 @@ import { motion } from 'framer-motion'
 const AddNadeForm: React.FC = () => {
   return (
     <motion.div
-      className="flex flex-col items-center gap-8"
+      className="flex flex-col items-center gap-8 pt-28 424:pt-0"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}

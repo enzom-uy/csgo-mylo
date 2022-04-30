@@ -1,6 +1,5 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import Navbar from './Navbar/Navbar'
-import { ThemeContext } from '../providers/ThemeContext'
 import Footer from './Footer/Footer'
 import { useLocation } from 'react-router-dom'
 
@@ -9,7 +8,6 @@ interface Props {
 }
 
 const Layout: React.FC<Props> = ({ children }) => {
-  const { isMobile } = useContext(ThemeContext)
   const { pathname } = useLocation()
 
   useEffect(() => {
@@ -19,9 +17,7 @@ const Layout: React.FC<Props> = ({ children }) => {
     <div className="w-full">
       <Navbar />
       <main
-        className={`flex justify-center items-start flex-wrap px-5 ${
-          isMobile ? 'pt-[7rem]' : 'pt-[7rem]'
-        } min-h-screen`}
+        className={`flex justify-center items-start flex-wrap pt-0 px-5 min-h-screen 424:pt-28`}
       >
         {children}
       </main>

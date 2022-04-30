@@ -26,8 +26,8 @@ const Navbar: React.FC = () => {
           <div className="flex gap-4 items-center">
             {user ? (
               <img
-                width="40"
-                height="40"
+                width="30"
+                height="30"
                 src={user.photoURL!}
                 className="rounded-full"
               />

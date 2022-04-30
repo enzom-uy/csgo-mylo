@@ -5,11 +5,11 @@ import Record from './record'
 
 const NadeGuide: React.FC = () => {
   return (
-    <div className="max-w-[60ch]">
+    <div className="max-w-[60ch] w-4/5">
       <h1 className="text-text-color font-medium text-2xl mb-4">
         Importante: cómo subir una granada.
       </h1>
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-4 max-w-[46h]">
         <Record />
         <Edit />
         <Gfycat />
