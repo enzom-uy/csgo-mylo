@@ -9,7 +9,8 @@ import 'react-toastify/dist/ReactToastify.css'
 const useAxiosCall = () => {
   const [error, setError] = useState('')
   const notifyLoading = () => toast.info('Subiendo la granada...')
-  const notifySuccess = () => toast.success('Granada subida!')
+  const notifySuccess = () =>
+    toast.success('Granada subida!', { hideProgressBar: true })
   const doAxiosCall = async (
     data: nadeData,
     collection: CollectionReference
