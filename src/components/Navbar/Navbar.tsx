@@ -19,7 +19,7 @@ const Navbar: React.FC = () => {
       } items-center justify-between fixed w-full z-10 h-12 bg-primary-darker`}
     >
       <NavLink to="/">
-        <img src={logo} width="114" height="44" />
+        <img src={logo} width="114" height="44" alt="Mylo nades website logo" />
       </NavLink>
       <div>
         {isMobile ? (
@@ -30,6 +30,7 @@ const Navbar: React.FC = () => {
                 height="30"
                 src={user.photoURL!}
                 className="rounded-full"
+                alt="User profile picture"
               />
             ) : null}
             <Suspense fallback={false}>
