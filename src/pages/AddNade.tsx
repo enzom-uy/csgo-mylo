@@ -5,25 +5,15 @@ import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from '../firebase'
 import { ClipLoader } from 'react-spinners'
 import { Navigate } from 'react-router-dom'
-import { motion } from 'framer-motion'
 
 const AddNade: React.FC = () => {
   const [user, loading] = useAuthState(auth)
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ delay: 0.001 }}
-    >
+    <div>
       {loading === true ? (
         <ClipLoader />
       ) : user !== null ? (
-        <p className="text-text-color">
-          Ya estás iniciado sesión,{' '}
-          <span className="text-red-500">{user?.email}</span>
-          <Navigate to="/agregar/form" />
-        </p>
+        <Navigate to="/agregar/form" />
       ) : (
         <div className="flex flex-col">
           <h1 className="text-text-color text-2xl font-medium">
@@ -40,7 +30,7 @@ const AddNade: React.FC = () => {
           </button>
         </div>
       )}
-    </motion.div>
+    </div>
   )
 }
 
