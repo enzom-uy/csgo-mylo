@@ -25,7 +25,7 @@ const Gfycat: React.FC = () => {
         >
           API de Gfycat
         </a>{' '}
-        para cargar los videos directamente de la página a la app. Una ves
+        para cargar los videos directamente de la página a la app. Una vez
         tengas la cuenta hecha y el video subido, copia el link (ejemplo:{' '}
         <a
           target="_blank"
