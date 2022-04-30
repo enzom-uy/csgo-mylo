@@ -1,13 +1,11 @@
 import axios from 'axios'
 import { v4 as uuidv4 } from 'uuid'
 import { addDoc, CollectionReference } from 'firebase/firestore'
-import { useState } from 'react'
 import { nadeData } from '../types/newNade'
 import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
 const useAxiosCall = () => {
-  const [error, setError] = useState('')
   const notifyLoading = () => toast.info('Subiendo la granada...')
   const notifySuccess = () =>
     toast.success('Granada subida!', { hideProgressBar: true })
@@ -34,16 +32,18 @@ const useAxiosCall = () => {
         notifySuccess()
       })
       .catch((err) => {
-        setError(
-          'Hubo un error al subir la granada.\nPor favor, verifique la URL.'
-        )
-        toast.dismiss()
-        const notifyError = () => toast.error(error)
-        notifyError()
+        if (err.code === 'ERR_BAD_REQUEST') {
+          toast.dismiss()
+          const notifyError = () =>
+            toast.error(
+              'Error al subir la granada. Por favor, verifique la URL.'
+            )
+          notifyError()
+        }
         console.log(err)
       })
   }
-  return { doAxiosCall, error }
+  return { doAxiosCall }
 }
 
 export default useAxiosCall
