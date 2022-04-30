@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { lazy, Suspense } from 'react'
 import { FcGoogle } from 'react-icons/fc'
 import useSignWithGoogle from '../hooks/useSignWithGoogle'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from '../firebase'
 import { ClipLoader } from 'react-spinners'
 import { Navigate } from 'react-router-dom'
+const AddNadeForm = lazy(() => import('./AddNadeForm'))
 
 const AddNade: React.FC = () => {
   const [user, loading] = useAuthState(auth)
@@ -13,7 +14,9 @@ const AddNade: React.FC = () => {
       {loading === true ? (
         <ClipLoader />
       ) : user !== null ? (
-        <Navigate to="/agregar/form" />
+        <Suspense fallback={<ClipLoader />}>
+          <AddNadeForm />
+        </Suspense>
       ) : (
         <div className="flex flex-col">
           <h1 className="text-text-color text-2xl font-medium">
