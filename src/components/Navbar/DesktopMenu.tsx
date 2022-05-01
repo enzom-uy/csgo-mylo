@@ -1,7 +1,7 @@
 import React from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { NavLink, useLocation } from 'react-router-dom'
-import { ClipLoader } from 'react-spinners'
+import ClipLoader from 'react-spinners/ClipLoader'
 import { auth } from '../../firebase'
 
 const DesktopMenu: React.FC = () => {
@@ -35,7 +35,7 @@ const DesktopMenu: React.FC = () => {
           <NavLink to="/agregar">Agregar nade</NavLink>
         </li>
         {loading ? (
-          <ClipLoader />
+          <ClipLoader color="#406E8E" />
         ) : user ? (
           <img
             width="30"

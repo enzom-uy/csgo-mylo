@@ -19,31 +19,13 @@ const Locations: React.FC = () => {
       exit={{ opacity: 0 }}
       transition={{ delay: 0.001 }}
     >
-      {mapa === 'Mirage' ? (
-        <Suspense fallback={<SyncLoader color="#406E8E" />}>
-          <Mirage location={location} />
-        </Suspense>
-      ) : null}
-      {mapa === 'Dust 2' ? (
-        <Suspense fallback={<SyncLoader color="#406E8E" />}>
-          <Dust2 location={location} />
-        </Suspense>
-      ) : null}
-      {mapa === 'Nuke' ? (
-        <Suspense fallback={<SyncLoader color="#406E8E" />}>
-          <Nuke location={location} />
-        </Suspense>
-      ) : null}
-      {mapa === 'Overpass' ? (
-        <Suspense fallback={<SyncLoader color="#406e8e" />}>
-          <Overpass location={location} />
-        </Suspense>
-      ) : null}
-      {mapa === 'Inferno' ? (
-        <Suspense fallback={<SyncLoader color="#406E8E" />}>
-          <Inferno location={location} />
-        </Suspense>
-      ) : null}
+      <Suspense fallback={<SyncLoader color="#406E8E" />}>
+        {mapa === 'Mirage' ? <Mirage location={location} /> : null}
+        {mapa === 'Dust 2' ? <Dust2 location={location} /> : null}
+        {mapa === 'Nuke' ? <Nuke location={location} /> : null}
+        {mapa === 'Overpass' ? <Overpass location={location} /> : null}
+        {mapa === 'Inferno' ? <Inferno location={location} /> : null}
+      </Suspense>
     </motion.div>
   )
 }

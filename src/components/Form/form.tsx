@@ -8,7 +8,6 @@ import formUtils from './form.utils'
 import Input from './input'
 import Select from './select'
 import { nadeSchema } from '../../validations/FormValidation'
-import { ToastContainer } from 'react-toastify'
 
 const Form: React.FC = () => {
   const references = formUtils().references
@@ -138,7 +137,7 @@ const Form: React.FC = () => {
       <div className="flex justify-center">
         <button
           type="submit"
-          className="bg-text-color px-4 py-2 w-full hover:bg-primary-lighter text-white font-medium"
+          className="bg-background-end px-4 py-2 w-full hover:bg-background-start text-white font-medium"
         >
           Agregar nade
         </button>

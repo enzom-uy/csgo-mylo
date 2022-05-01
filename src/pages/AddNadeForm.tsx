@@ -1,7 +1,8 @@
-import React from 'react'
-import Form from '../components/Form/form'
-import NadeGuide from '../components/NadeGuide/nadeguide'
+import React, { lazy, Suspense } from 'react'
 import { motion } from 'framer-motion'
+import ClipLoader from 'react-spinners/ClipLoader'
+const Form = lazy(() => import('../components/Form/form'))
+const NadeGuide = lazy(() => import('../components/NadeGuide/nadeguide'))
 
 const AddNadeForm: React.FC = () => {
   return (
@@ -12,10 +13,12 @@ const AddNadeForm: React.FC = () => {
       exit={{ opacity: 0 }}
       transition={{ delay: 0.001 }}
     >
-      <NadeGuide />
-      <div className="w-[90%]">
-        <Form />
-      </div>
+      <Suspense fallback={<ClipLoader color="#406E8E" />}>
+        <NadeGuide />
+        <div className="w-[90%]">
+          <Form />
+        </div>
+      </Suspense>
     </motion.div>
   )
 }

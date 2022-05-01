@@ -9,6 +9,7 @@ const Mapas = lazy(() => import('./pages/Mapas'))
 const Locations = lazy(() => import('./pages/Locations'))
 const Nades = lazy(() => import('./pages/Nades'))
 import { AnimatePresence } from 'framer-motion'
+import ClipLoader from 'react-spinners/ClipLoader'
 
 const App: React.FC = () => {
   const location = useLocation()
@@ -16,43 +17,23 @@ const App: React.FC = () => {
   const routes = [
     {
       path: '/',
-      element: (
-        <Suspense fallback={false}>
-          <Homepage />
-        </Suspense>
-      )
+      element: <Homepage />
     },
     {
       path: '/mapas',
-      element: (
-        <Suspense fallback={null}>
-          <Mapas />
-        </Suspense>
-      )
+      element: <Mapas />
     },
     {
       path: '/agregar',
-      element: (
-        <Suspense fallback={null}>
-          <AddNade />
-        </Suspense>
-      )
+      element: <AddNade />
     },
     {
       path: '/:mapa/locations',
-      element: (
-        <Suspense fallback={null}>
-          <Locations />
-        </Suspense>
-      )
+      element: <Locations />
     },
     {
       path: '/:mapa/locations/:location',
-      element: (
-        <Suspense fallback={null}>
-          <Nades />
-        </Suspense>
-      )
+      element: <Nades />
     }
   ]
   return (
@@ -67,15 +48,17 @@ const App: React.FC = () => {
             draggable
           />
           <AnimatePresence exitBeforeEnter>
-            <Routes location={location} key={location.pathname}>
-              {routes.map((route) => (
-                <Route
-                  key={route.path}
-                  path={route.path}
-                  element={route.element}
-                />
-              ))}
-            </Routes>
+            <Suspense fallback={<ClipLoader color="#406e8e" />}>
+              <Routes location={location} key={location.pathname}>
+                {routes.map((route) => (
+                  <Route
+                    key={route.path}
+                    path={route.path}
+                    element={route.element}
+                  />
+                ))}
+              </Routes>
+            </Suspense>
           </AnimatePresence>
         </Layout>
       </div>
