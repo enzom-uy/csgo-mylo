@@ -14,7 +14,7 @@ module.exports = {
         'background-start': '#161925',
         'primary-darker': '#11131c',
         'background-end': '#191C2E',
-        'text-color': '#406E8E',
+        'text-color': '#B2CADC',
         'primary-lighter': '#63a2cf'
       },
       boxShadow: {
