@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Record: React.FC = () => {
+export const Record: React.FC = () => {
   return (
     <>
       <strong className="text-text-color">

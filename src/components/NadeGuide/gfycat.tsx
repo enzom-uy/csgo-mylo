@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Gfycat: React.FC = () => {
+export const Gfycat: React.FC = () => {
   return (
     <>
       <strong className="text-text-color">

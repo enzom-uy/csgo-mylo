@@ -30,7 +30,7 @@ export const maps = [
   }
 ]
 
-const Mapas: React.FC = () => {
+export const Mapas: React.FC = () => {
   return (
     <MotionDiv className="flex w-full justify-start items-center flex-col debug">
       <h1 className="text-text-color text-4xl mb-10 drop-shadow-heading">

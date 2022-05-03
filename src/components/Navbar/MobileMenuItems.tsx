@@ -5,7 +5,7 @@ interface Props {
   toggle: () => void
 }
 
-const MobileMenuItems: React.FC<Props> = ({ toggle }) => {
+export const MobileMenuItems: React.FC<Props> = ({ toggle }) => {
   const currentLocation = useLocation().pathname
   return (
     <ul className="fixed right-0 left-0 top-[47px] bg-background-start w-full shadow-custom">

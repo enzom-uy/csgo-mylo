@@ -4,7 +4,7 @@ import { Card } from '../components/index.components'
 import mapasimg from '/src/assets/card_mapas.png'
 import { motion } from 'framer-motion'
 
-const Homepage: React.FC = () => {
+export const Homepage: React.FC = () => {
   return (
     <motion.main
       className="flex flex-col items-center"

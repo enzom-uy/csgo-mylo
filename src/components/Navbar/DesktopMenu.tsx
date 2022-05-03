@@ -4,7 +4,7 @@ import { NavLink, useLocation } from 'react-router-dom'
 import ClipLoader from 'react-spinners/ClipLoader'
 import { auth } from '../../firebase'
 
-const DesktopMenu: React.FC = () => {
+export const DesktopMenu: React.FC = () => {
   const currentLocation = useLocation().pathname
   const [user, loading] = useAuthState(auth)
   return (

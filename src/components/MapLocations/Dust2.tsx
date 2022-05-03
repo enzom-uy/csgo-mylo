@@ -1,37 +1,53 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
-import { Props } from '../index.components'
+import { LocationLink, Props } from '../index.components'
+
+const mapLocations = [
+  {
+    link: 'site-a',
+    name: 'Site a'
+  },
+  {
+    link: 'site-b',
+    name: 'Site b'
+  },
+  {
+    link: 'medio',
+    name: 'Medio'
+  },
+  {
+    link: 'medio-ct',
+    name: 'Medio CT'
+  },
+  {
+    link: 'fondo',
+    name: 'Fondo'
+  },
+  {
+    link: 'varanda',
+    name: 'Varanda'
+  },
+  {
+    link: 'oscuro',
+    name: 'Oscuro'
+  },
+  {
+    link: 'base-tt',
+    name: 'Base TT'
+  },
+  {
+    link: 'base-ct',
+    name: 'Base CT'
+  }
+]
 
 export const Dust2: React.FC<Props> = ({ location }) => {
   return (
     <>
-      <NavLink to={`${location}/site-a`} className="text-text-color">
-        Site de A
-      </NavLink>
-      <NavLink to={`${location}/site-b`} className="text-text-color">
-        Site de B
-      </NavLink>
-      <NavLink to={`${location}/medio`} className="text-text-color">
-        Medio
-      </NavLink>
-      <NavLink to={`${location}/medio-ct`} className="text-text-color">
-        Medio CT
-      </NavLink>
-      <NavLink to={`${location}/fondo`} className="text-text-color">
-        Fondo
-      </NavLink>
-      <NavLink to={`${location}/varanda`} className="text-text-color">
-        Varanda
-      </NavLink>
-      <NavLink to={`${location}/oscuro`} className="text-text-color">
-        Oscuro
-      </NavLink>
-      <NavLink to={`${location}/tt`} className="text-text-color">
-        Base TT
-      </NavLink>
-      <NavLink to={`${location}/ct`} className="text-text-color">
-        Base CT
-      </NavLink>
+      {mapLocations.map((loc) => (
+        <LocationLink key={loc.link} navTo={`${location}/${loc.link}`}>
+          {loc.name}
+        </LocationLink>
+      ))}
     </>
   )
 }

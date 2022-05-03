@@ -1,37 +1,53 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
-import { Props } from '../index.components'
+import { LocationLink, Props } from '../index.components'
+
+const mapLocations = [
+  {
+    link: 'site-a',
+    name: 'Site a'
+  },
+  {
+    link: 'site-b',
+    name: 'Site b'
+  },
+  {
+    link: 'corta',
+    name: 'Corta'
+  },
+  {
+    link: 'larga',
+    name: 'Larga'
+  },
+  {
+    link: 'tapete-ct',
+    name: 'Tapete CT'
+  },
+  {
+    link: 'tapete-tt',
+    name: 'Tapete TT'
+  },
+  {
+    link: 'medio',
+    name: 'medio'
+  },
+  {
+    link: 'medio-falso',
+    name: 'Medio falso'
+  },
+  {
+    link: 'banana',
+    name: 'Banana'
+  }
+]
 
 export const Inferno: React.FC<Props> = ({ location }) => {
   return (
     <>
-      <NavLink to={`${location}/site-a`} className="text-text-color">
-        Site de A
-      </NavLink>
-      <NavLink to={`${location}/corta`} className="text-text-color">
-        Corta
-      </NavLink>
-      <NavLink to={`${location}/larga`} className="text-text-color">
-        Larga
-      </NavLink>
-      <NavLink to={`${location}/tapete-ct`} className="text-text-color">
-        Tapete CT
-      </NavLink>
-      <NavLink to={`${location}/site-b`} className="text-text-color">
-        Site de B
-      </NavLink>
-      <NavLink to={`${location}/medio`} className="text-text-color">
-        Medio
-      </NavLink>
-      <NavLink to={`${location}/tapete-tt`} className="text-text-color">
-        Tapete TT
-      </NavLink>
-      <NavLink to={`${location}/medio-falso`} className="text-text-color">
-        Medio falso
-      </NavLink>
-      <NavLink to={`${location}/banana`} className="text-text-color">
-        Banana
-      </NavLink>
+      {mapLocations.map((loc) => (
+        <LocationLink key={loc.link} navTo={`${location}/${loc.link}`}>
+          {loc.name}
+        </LocationLink>
+      ))}
     </>
   )
 }

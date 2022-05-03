@@ -3,7 +3,7 @@ import Edit from './edit'
 import Gfycat from './gfycat'
 import Record from './record'
 
-const NadeGuide: React.FC = () => {
+export const NadeGuide: React.FC = () => {
   return (
     <div className="max-w-[70ch] w-4/5">
       <h1 className="text-text-color font-medium text-2xl mb-4">

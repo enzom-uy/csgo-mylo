@@ -5,7 +5,7 @@ import { MotionDiv } from '../components/index.components'
 import { useGetSmokes, useGetMolos, useGetFlashes } from '../hooks/index.hooks'
 import ClipLoader from 'react-spinners/ClipLoader'
 
-const Nades: React.FC = () => {
+export const Nades: React.FC = () => {
   const { location, mapa } = useParams()
   const { loadingSmokes, smokesFromLocation } = useGetSmokes(location, mapa)
   const { loadingFlashes, flashesFromLocation } = useGetFlashes(location, mapa)

@@ -1,12 +1,12 @@
 import React, { lazy, Suspense } from 'react'
 import { FcGoogle } from 'react-icons/fc/index'
-import signWithGoogle from '../utils/signWithGoogle'
+import {signWithGoogle} from '../utils/index.utils'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from '../firebase'
 import ClipLoader from 'react-spinners/ClipLoader'
 const AddNadeForm = lazy(() => import('./AddNadeForm'))
 
-const AddNade: React.FC = () => {
+export const AddNade: React.FC = () => {
   const [user, loading] = useAuthState(auth)
   return (
     <div>

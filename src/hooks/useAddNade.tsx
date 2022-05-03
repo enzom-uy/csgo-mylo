@@ -3,7 +3,7 @@ import {
   molosCollection,
   smokesCollection
 } from '../firebase'
-import { nadeData } from '../types/newNade'
+import { nadeData } from '../models/index.models'
 import { useAxiosCall } from './index.hooks'
 
 export const useAddNade = () => {

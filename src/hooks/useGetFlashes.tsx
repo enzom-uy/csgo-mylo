@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { getDocs, query, where } from 'firebase/firestore'
 import { flashesCollection } from '../firebase'
-import { Nade } from '../interfaces/interfaces'
+import { Nade } from '../interfaces/index.interfaces'
 import ClipLoader from 'react-spinners/ClipLoader'
 
 export const useGetFlashes = (

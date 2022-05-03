@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { v4 as uuidv4 } from 'uuid'
 import { addDoc, CollectionReference } from 'firebase/firestore'
-import { nadeData } from '../types/newNade'
+import { nadeData } from '../models/index.models'
 import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 

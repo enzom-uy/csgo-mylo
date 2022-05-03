@@ -1,31 +1,49 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
-import { Props } from '../index.components'
+import { LocationLink, Props } from '../index.components'
+
+const mapLocations = [
+  {
+    link: 'site-a',
+    name: 'Site a'
+  },
+  {
+    link: 'site-b',
+    name: 'Site b'
+  },
+  {
+    link: 'cielo',
+    name: 'Cielo'
+  },
+  {
+    link: 'lobby',
+    name: 'Lobby'
+  },
+  {
+    link: 'afuera',
+    name: 'Afuera'
+  },
+  {
+    link: 'silo',
+    name: 'Silo'
+  },
+  {
+    link: 'site-b',
+    name: 'Site de B'
+  },
+  {
+    link: 'rampa',
+    name: 'Rampa'
+  }
+]
 
 export const Nuke: React.FC<Props> = ({ location }) => {
   return (
     <>
-      <NavLink to={`${location}/site-a`} className="text-text-color">
-        Site de A
-      </NavLink>
-      <NavLink to={`${location}/cielo`} className="text-text-color">
-        Cielo
-      </NavLink>
-      <NavLink to={`${location}/lobby`} className="text-text-color">
-        Lobby
-      </NavLink>
-      <NavLink to={`${location}/afuera`} className="text-text-color">
-        Afuera
-      </NavLink>
-      <NavLink to={`${location}/silo`} className="text-text-color">
-        Silo
-      </NavLink>
-      <NavLink to={`${location}/site-b`} className="text-text-color">
-        Site de B
-      </NavLink>
-      <NavLink to={`${location}/rampa`} className="text-text-color">
-        Rampa
-      </NavLink>
+      {mapLocations.map((loc) => (
+        <LocationLink key={loc.link} navTo={`${location}/${loc.link}`}>
+          {loc.name}
+        </LocationLink>
+      ))}
     </>
   )
 }

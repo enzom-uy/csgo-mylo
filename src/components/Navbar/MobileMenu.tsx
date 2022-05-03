@@ -1,8 +1,8 @@
 import React, { useContext } from 'react'
-import { ThemeContext } from '../../providers/ThemeContext'
+import { ThemeContext } from '../../providers/index.providers'
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai'
 
-const MobileMenu: React.FC = () => {
+export const MobileMenu: React.FC = () => {
   const { isOpen, handleMenuToggle } = useContext(ThemeContext)
   return (
     <div>

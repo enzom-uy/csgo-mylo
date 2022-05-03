@@ -7,6 +7,15 @@ const Inferno = lazy(() => import('../components/MapLocations/Inferno'))
 const Overpass = lazy(() => import('../components/MapLocations/Overpass'))
 const Nuke = lazy(() => import('../components/MapLocations/Nuke'))
 import { MotionDiv } from '../components/index.components'
+import { Maps } from '../models/index.models'
+
+const Mapas: Maps = {
+  Mirage: 'Mirage',
+  Dust2: 'Dust 2',
+  Overpass: 'Overpass',
+  Nuke: 'Nuke',
+  Inferno: 'Inferno'
+}
 
 export const Locations: React.FC = () => {
   const location = useLocation().pathname
@@ -14,11 +23,11 @@ export const Locations: React.FC = () => {
   return (
     <MotionDiv className="flex flex-col pt-28 gap-4 424:pt-0">
       <Suspense fallback={<SyncLoader color="#406E8E" />}>
-        {mapa === 'Mirage' ? <Mirage location={location} /> : null}
-        {mapa === 'Dust 2' ? <Dust2 location={location} /> : null}
-        {mapa === 'Nuke' ? <Nuke location={location} /> : null}
-        {mapa === 'Overpass' ? <Overpass location={location} /> : null}
-        {mapa === 'Inferno' ? <Inferno location={location} /> : null}
+        {mapa === Mapas.Mirage && <Mirage location={location} />}
+        {mapa === Mapas.Dust2 && <Dust2 location={location} />}
+        {mapa === Mapas.Nuke && <Nuke location={location} />}
+        {mapa === Mapas.Overpass && <Overpass location={location} />}
+        {mapa === Mapas.Inferno && <Inferno location={location} />}
       </Suspense>
     </MotionDiv>
   )

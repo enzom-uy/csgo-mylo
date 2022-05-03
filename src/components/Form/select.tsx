@@ -52,3 +52,5 @@ export const Select: React.FC<Props> = ({
     </div>
   )
 }
+
+export default Select

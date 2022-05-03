@@ -19,3 +19,5 @@ export const MotionDiv: React.FC<IProps> = ({ children, className }) => {
     </motion.div>
   )
 }
+
+export default MotionDiv

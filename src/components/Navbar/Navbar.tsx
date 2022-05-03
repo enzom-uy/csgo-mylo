@@ -2,8 +2,8 @@ import React, { useContext, lazy, Suspense } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { NavLink } from 'react-router-dom'
 import { auth } from '../../firebase'
-import { ThemeContext } from '../../providers/ThemeContext'
-import MobileMenuItems from './MobileMenuItems'
+import { ThemeContext } from '../../providers/index.providers'
+import {MobileMenuItems} from '../index.components'
 const MobileMenu = lazy(() => import('./MobileMenu'))
 const DesktopMenu = lazy(() => import('./DesktopMenu'))
 import logo from '/src/assets/mylo_navbarpng.png'

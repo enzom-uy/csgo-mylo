@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import { nadeTypes, locations } from '../../data/index.data'
 import { useAddNade } from '../../hooks/index.hooks'
-import formatLocation from '../../utils/formatLocation'
-import { maps } from '../../pages/Mapas'
+import { formatLocation } from '../../utils/index.utils'
+import { maps } from '../../pages/index.pages'
 import { formUtils, Input, Select } from '../index.components'
-import { nadeSchema } from '../../validations/FormValidation'
+import { nadeSchema } from '../../validations/index.validations'
 
 export const Form: React.FC = () => {
   const references = formUtils().references
