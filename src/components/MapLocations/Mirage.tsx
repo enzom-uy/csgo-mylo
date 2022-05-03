@@ -1,11 +1,8 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import { Props } from '../index.components'
 
-interface Props {
-  location: string
-}
-
-const Mirage: React.FC<Props> = ({ location }) => {
+export const Mirage: React.FC<Props> = ({ location }) => {
   return (
     <>
       <NavLink to={`${location}/site-a`} className="text-text-color text-xl">

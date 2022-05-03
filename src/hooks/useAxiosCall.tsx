@@ -5,7 +5,7 @@ import { nadeData } from '../types/newNade'
 import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
-const useAxiosCall = () => {
+export const useAxiosCall = () => {
   const notifyLoading = () => toast.info('Subiendo la granada...')
   const notifySuccess = () =>
     toast.success('Granada subida!', { hideProgressBar: true })
@@ -45,5 +45,3 @@ const useAxiosCall = () => {
   }
   return { doAxiosCall }
 }
-
-export default useAxiosCall

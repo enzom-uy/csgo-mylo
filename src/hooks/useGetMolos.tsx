@@ -4,7 +4,10 @@ import { molosCollection } from '../firebase'
 import { Nade } from '../interfaces/interfaces'
 import ClipLoader from 'react-spinners/ClipLoader'
 
-const useGetMolos = (location: string | undefined, map: string | undefined) => {
+export const useGetMolos = (
+  location: string | undefined,
+  map: string | undefined
+) => {
   const [molos, setMolos] = useState<Array<Nade>>([])
   const [molosFromLocation, setMolosFromLocation] = useState<Array<Nade>>([])
   const [loadingMolos, setLoadingMolos] = useState<React.ReactNode>(
@@ -32,5 +35,3 @@ const useGetMolos = (location: string | undefined, map: string | undefined) => {
 
   return { molos, molosFromLocation, loadingMolos }
 }
-
-export default useGetMolos

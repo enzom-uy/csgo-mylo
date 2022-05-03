@@ -5,7 +5,7 @@ import 'react-toastify/dist/ReactToastify.css'
 
 const provider = new GoogleAuthProvider()
 
-const useSignWithGoogle = () => {
+const signWithGoogle = () => {
   signInWithPopup(auth, provider)
     .then((res) => {
       const credential = GoogleAuthProvider.credentialFromResult(res)
@@ -23,4 +23,4 @@ const useSignWithGoogle = () => {
     })
 }
 
-export default useSignWithGoogle
+export default signWithGoogle

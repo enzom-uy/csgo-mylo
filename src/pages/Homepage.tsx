@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import Card from '../components/Card/Card'
+import { Card } from '../components/index.components'
 import mapasimg from '/src/assets/card_mapas.png'
 import { motion } from 'framer-motion'
 

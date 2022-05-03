@@ -6,19 +6,13 @@ const Mirage = lazy(() => import('../components/MapLocations/Mirage'))
 const Inferno = lazy(() => import('../components/MapLocations/Inferno'))
 const Overpass = lazy(() => import('../components/MapLocations/Overpass'))
 const Nuke = lazy(() => import('../components/MapLocations/Nuke'))
-import { motion } from 'framer-motion'
+import { MotionDiv } from '../components/index.components'
 
-const Locations: React.FC = () => {
+export const Locations: React.FC = () => {
   const location = useLocation().pathname
   const { mapa } = useParams()
   return (
-    <motion.div
-      className="flex flex-col pt-28 gap-4 424:pt-0"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ delay: 0.001 }}
-    >
+    <MotionDiv className="flex flex-col pt-28 gap-4 424:pt-0">
       <Suspense fallback={<SyncLoader color="#406E8E" />}>
         {mapa === 'Mirage' ? <Mirage location={location} /> : null}
         {mapa === 'Dust 2' ? <Dust2 location={location} /> : null}
@@ -26,7 +20,7 @@ const Locations: React.FC = () => {
         {mapa === 'Overpass' ? <Overpass location={location} /> : null}
         {mapa === 'Inferno' ? <Inferno location={location} /> : null}
       </Suspense>
-    </motion.div>
+    </MotionDiv>
   )
 }
 

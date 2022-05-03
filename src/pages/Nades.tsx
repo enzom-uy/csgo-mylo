@@ -1,10 +1,8 @@
 import React, { lazy, Suspense } from 'react'
 import { useParams } from 'react-router-dom'
 const Nade = lazy(() => import('../components/Nade/Nade'))
-import useGetSmokes from '../hooks/useGetSmokes'
-import useGetMolos from '../hooks/useGetMolos'
-import useGetFlashes from '../hooks/useGetFlashes'
-import { motion } from 'framer-motion'
+import { MotionDiv } from '../components/index.components'
+import { useGetSmokes, useGetMolos, useGetFlashes } from '../hooks/index.hooks'
 import ClipLoader from 'react-spinners/ClipLoader'
 
 const Nades: React.FC = () => {
@@ -13,13 +11,7 @@ const Nades: React.FC = () => {
   const { loadingFlashes, flashesFromLocation } = useGetFlashes(location, mapa)
   const { loadingMolos, molosFromLocation } = useGetMolos(location, mapa)
   return (
-    <motion.div
-      className="flex flex-col justify-center gap-10 w-full pt-28 424:pt-0 flex-wrap"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ delay: 0.001 }}
-    >
+    <MotionDiv className="flex flex-col justify-center gap-10 w-full pt-28 424:pt-0 flex-wrap">
       <Suspense fallback={<ClipLoader color="#406E8E" />}>
         <div>
           <h1 className="text-center text-3xl text-text-color drop-shadow-heading mb-4">
@@ -70,7 +62,7 @@ const Nades: React.FC = () => {
           </div>
         </div>
       </Suspense>
-    </motion.div>
+    </MotionDiv>
   )
 }
 

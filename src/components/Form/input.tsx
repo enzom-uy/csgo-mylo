@@ -9,7 +9,7 @@ interface Props {
   handler?: () => void
 }
 
-const Input: React.FC<Props> = ({
+export const Input: React.FC<Props> = ({
   htmlFor,
   labelText,
   type,
@@ -46,5 +46,3 @@ const Input: React.FC<Props> = ({
     </div>
   )
 }
-
-export default Input

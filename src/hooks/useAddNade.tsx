@@ -4,9 +4,9 @@ import {
   smokesCollection
 } from '../firebase'
 import { nadeData } from '../types/newNade'
-import useAxiosCall from './useAxiosCall'
+import { useAxiosCall } from './index.hooks'
 
-const useAddNade = () => {
+export const useAddNade = () => {
   const { doAxiosCall } = useAxiosCall()
   const addNade = async (type: string, data: nadeData) => {
     switch (type) {

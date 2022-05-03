@@ -4,7 +4,7 @@ import { flashesCollection } from '../firebase'
 import { Nade } from '../interfaces/interfaces'
 import ClipLoader from 'react-spinners/ClipLoader'
 
-const useGetFlashes = (
+export const useGetFlashes = (
   location: string | undefined,
   map: string | undefined
 ) => {
@@ -41,5 +41,3 @@ const useGetFlashes = (
 
   return { flashes, flashesFromLocation, loadingFlashes }
 }
-
-export default useGetFlashes

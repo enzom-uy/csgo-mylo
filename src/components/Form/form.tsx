@@ -1,15 +1,12 @@
 import React, { useState } from 'react'
-import { locations } from '../../data/locations'
-import { nadeTypes } from '../../data/nadeTypes'
-import useAddNade from '../../hooks/useAddNade'
-import useFormatLocation from '../../hooks/useFormatLocation'
+import { nadeTypes, locations } from '../../data/index.data'
+import { useAddNade } from '../../hooks/index.hooks'
+import formatLocation from '../../utils/formatLocation'
 import { maps } from '../../pages/Mapas'
-import formUtils from './form.utils'
-import Input from './input'
-import Select from './select'
+import { formUtils, Input, Select } from '../index.components'
 import { nadeSchema } from '../../validations/FormValidation'
 
-const Form: React.FC = () => {
+export const Form: React.FC = () => {
   const references = formUtils().references
   const initialState = formUtils().initialState
   const [formValues, setFormValues] = useState(initialState)
@@ -103,7 +100,7 @@ const Form: React.FC = () => {
       >
         {filtered.map((map) =>
           map.locations.map((location) => {
-            const locationFormatted = useFormatLocation(location)
+            const locationFormatted = formatLocation(location)
             return (
               <option key={location} value={location}>
                 {locationFormatted}

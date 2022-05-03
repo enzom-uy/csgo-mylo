@@ -1,6 +1,6 @@
 import { useRef } from 'react'
 
-const formUtils = () => {
+export const formUtils = () => {
   const references = {
     nadeNameRef: useRef<HTMLInputElement>(null),
     nadeVideoUrl: useRef<HTMLInputElement>(null),
@@ -19,5 +19,3 @@ const formUtils = () => {
 
   return { references, initialState }
 }
-
-export default formUtils

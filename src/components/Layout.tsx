@@ -1,13 +1,12 @@
 import React, { useEffect } from 'react'
-import Navbar from './Navbar/Navbar'
-import Footer from './Footer/Footer'
+import { Footer, Navbar } from './index.components'
 import { useLocation } from 'react-router-dom'
 
 interface Props {
   children: React.ReactNode
 }
 
-const Layout: React.FC<Props> = ({ children }) => {
+export const Layout: React.FC<Props> = ({ children }) => {
   const { pathname } = useLocation()
 
   useEffect(() => {

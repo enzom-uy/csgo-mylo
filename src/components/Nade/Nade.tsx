@@ -8,7 +8,7 @@ interface Props {
   videoUrl: string
 }
 
-const Nade: React.FC<Props> = ({ name, videoUrl }) => {
+export const Nade: React.FC<Props> = ({ name, videoUrl }) => {
   return (
     <div className="flex flex-col items-center">
       <p className="text-center text-text-color font-medium text-2xl mb-2">
@@ -20,5 +20,4 @@ const Nade: React.FC<Props> = ({ name, videoUrl }) => {
     </div>
   )
 }
-
 export default Nade

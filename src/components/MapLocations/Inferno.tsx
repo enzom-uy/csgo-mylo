@@ -1,11 +1,8 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import { Props } from '../index.components'
 
-interface Props {
-  location: string
-}
-
-const Inferno: React.FC<Props> = ({ location }) => {
+export const Inferno: React.FC<Props> = ({ location }) => {
   return (
     <>
       <NavLink to={`${location}/site-a`} className="text-text-color">

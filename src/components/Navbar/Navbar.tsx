@@ -8,7 +8,7 @@ const MobileMenu = lazy(() => import('./MobileMenu'))
 const DesktopMenu = lazy(() => import('./DesktopMenu'))
 import logo from '/src/assets/mylo_navbarpng.png'
 
-const Navbar: React.FC = () => {
+export const Navbar: React.FC = () => {
   const [user] = useAuthState(auth)
   const { isMobile, isOpen, handleMenuToggle } = useContext(ThemeContext)
   return (

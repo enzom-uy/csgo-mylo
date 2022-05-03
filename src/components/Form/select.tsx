@@ -11,7 +11,7 @@ interface Props {
   value: string
 }
 
-const Select: React.FC<Props> = ({
+export const Select: React.FC<Props> = ({
   htmlFor,
   labelText,
   initialOption,
@@ -52,5 +52,3 @@ const Select: React.FC<Props> = ({
     </div>
   )
 }
-
-export default Select
