@@ -7,7 +7,6 @@ interface Props {
 }
 
 export const LocationLink: React.FC<Props> = ({ children, navTo }) => {
-  console.log(navTo)
   return (
     <NavLink to={navTo} className="text-text-color text-md">
       {children}

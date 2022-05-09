@@ -18,6 +18,7 @@ const { Provider } = ThemeContext
 const ThemeContextProvider = ({ children }: Props) => {
   const isMobile = useMediaQuery('(max-width: 970px)')
   const [isOpen, setIsOpen] = useState(false)
+
   const handleMenuToggle = () => {
     setIsOpen((prevIsOpen) => !prevIsOpen)
   }

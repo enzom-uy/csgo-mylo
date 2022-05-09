@@ -49,19 +49,15 @@ const mapLocations = [
 ]
 
 export const Mirage: React.FC<Props> = ({ location }) => {
-  const Component = MapasComponents.Mirage
-  if (!Component) {
-    return null
-  } else
-    return (
-      <>
-        {mapLocations.map((loc) => (
-          <LocationLink key={loc.link} navTo={`${location}/${loc.link}`}>
-            {loc.name}
-          </LocationLink>
-        ))}
-      </>
-    )
+  return (
+    <>
+      {mapLocations.map((loc) => (
+        <LocationLink key={loc.link} navTo={`${location}/${loc.link}`}>
+          {loc.name}
+        </LocationLink>
+      ))}
+    </>
+  )
 }
 
 export default Mirage

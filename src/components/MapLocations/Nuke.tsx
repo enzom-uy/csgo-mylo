@@ -27,10 +27,6 @@ const mapLocations = [
     name: 'Silo'
   },
   {
-    link: 'site-b',
-    name: 'Site de B'
-  },
-  {
     link: 'rampa',
     name: 'Rampa'
   }
