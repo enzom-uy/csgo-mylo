@@ -1,9 +1,12 @@
-import React, { useContext } from 'react'
-import { ThemeContext } from '../../providers/index.providers'
+import React from 'react'
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai'
 
-export const MobileMenu: React.FC = () => {
-  const { isOpen, handleMenuToggle } = useContext(ThemeContext)
+interface IProps {
+  isOpen: boolean
+  handleMenuToggle: () => void
+}
+
+export const MobileMenu: React.FC<IProps> = ({ isOpen, handleMenuToggle }) => {
   return (
     <button onClick={handleMenuToggle}>
       {!isOpen ? (

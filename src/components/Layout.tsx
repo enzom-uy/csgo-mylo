@@ -14,7 +14,6 @@ export const Layout: React.FC<Props> = ({ children }) => {
   }, [pathname])
   return (
     <div className="w-full">
-      <Navbar />
       <main
         className={`flex justify-center items-start flex-wrap pt-0 px-5 min-h-screen 424:pt-28`}
       >

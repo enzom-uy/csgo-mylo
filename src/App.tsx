@@ -2,16 +2,17 @@ import React, { Suspense } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 import Layout from './components/Layout'
-import ThemeContextProvider from './providers/ThemeContext'
 import { AnimatePresence } from 'framer-motion'
 import ClipLoader from 'react-spinners/ClipLoader'
 import { routes } from './data/index.data'
+import Navbar from './components/Navbar/Navbar'
 
 const App: React.FC = () => {
   const location = useLocation()
 
   return (
-    <ThemeContextProvider>
+    <div>
+      <Navbar />
       <div className="min-h-screen flex bg-gradient-to-br from-background-start to-primary-darker">
         <Layout>
           <ToastContainer
@@ -36,7 +37,7 @@ const App: React.FC = () => {
           </AnimatePresence>
         </Layout>
       </div>
-    </ThemeContextProvider>
+    </div>
   )
 }
 

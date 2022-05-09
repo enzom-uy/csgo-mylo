@@ -1,16 +1,20 @@
-import React, { useContext, lazy, Suspense, memo } from 'react'
+import React, { lazy, Suspense, useState } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { NavLink } from 'react-router-dom'
 import { auth } from '../../firebase'
-import { ThemeContext } from '../../providers/index.providers'
 import { MobileMenuItems } from '../index.components'
 const MobileMenu = lazy(() => import('./MobileMenu'))
 const DesktopMenu = lazy(() => import('./DesktopMenu'))
 import logo from '/src/assets/mylo_navbarpng.png'
+import useMediaQuery from 'use-mediaquery'
 
 export const Navbar: React.FC = () => {
   const [user] = useAuthState(auth)
-  const { isMobile, isOpen, handleMenuToggle } = useContext(ThemeContext)
+  const isMobile = useMediaQuery('(max-width: 970px)')
+  const [isOpen, setIsOpen] = useState(false)
+  const handleMenuToggle = () => {
+    setIsOpen((prevIsOpen) => !prevIsOpen)
+  }
   console.log('Navbar rendered.')
   return (
     <nav
@@ -35,7 +39,7 @@ export const Navbar: React.FC = () => {
               />
             ) : null}
             <Suspense fallback={false}>
-              <MobileMenu />
+              <MobileMenu isOpen={isOpen} handleMenuToggle={handleMenuToggle} />
             </Suspense>
           </div>
         ) : (
@@ -53,4 +57,4 @@ export const Navbar: React.FC = () => {
   )
 }
 
-export default memo(Navbar)
+export default Navbar
