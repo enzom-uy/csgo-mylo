@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Footer, Navbar } from './index.components'
+import { Footer, Navbar, MemoedNavbar } from './index.components'
 import { useLocation } from 'react-router-dom'
 
 interface Props {
@@ -14,7 +14,7 @@ export const Layout: React.FC<Props> = ({ children }) => {
   }, [pathname])
   return (
     <div className="w-full">
-      <Navbar />
+      <MemoedNavbar />
       <main
         className={`flex justify-center items-start flex-wrap pt-0 px-5 min-h-screen 424:pt-28`}
       >

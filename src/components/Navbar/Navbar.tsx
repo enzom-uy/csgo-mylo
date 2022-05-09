@@ -1,4 +1,4 @@
-import React, { useContext, lazy, Suspense } from 'react'
+import React, { useContext, lazy, Suspense, memo } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { NavLink } from 'react-router-dom'
 import { auth } from '../../firebase'
@@ -11,6 +11,7 @@ import logo from '/src/assets/mylo_navbarpng.png'
 export const Navbar: React.FC = () => {
   const [user] = useAuthState(auth)
   const { isMobile, isOpen, handleMenuToggle } = useContext(ThemeContext)
+  console.log('Navbar rendered.')
   return (
     <nav
       role="navigation"
@@ -52,4 +53,6 @@ export const Navbar: React.FC = () => {
   )
 }
 
-export default Navbar
+export const MemoedNavbar = memo(Navbar)
+
+export default MemoedNavbar
