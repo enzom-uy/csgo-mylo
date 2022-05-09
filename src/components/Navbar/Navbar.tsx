@@ -53,6 +53,4 @@ export const Navbar: React.FC = () => {
   )
 }
 
-export const MemoedNavbar = memo(Navbar)
-
-export default MemoedNavbar
+export default memo(Navbar)
