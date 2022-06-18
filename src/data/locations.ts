@@ -43,7 +43,8 @@ export const locations = [
       'banios',
       'liga',
       'aguas',
-      'cielo'
+      'cielo',
+      'sapo'
     ]
   },
   {
