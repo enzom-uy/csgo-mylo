@@ -33,6 +33,10 @@ const mapLocations = [
   {
     link: 'cielo',
     name: 'Cielo'
+  },
+  {
+    link: 'sapo',
+    name: 'Sapo'
   }
 ]
 
